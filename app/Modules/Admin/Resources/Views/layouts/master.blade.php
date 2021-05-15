@@ -7,6 +7,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Pham Dang Thang">
     <meta name="keywords" content="au theme template">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     <!-- Title Page-->
     <title>Forms</title>
@@ -26,6 +27,7 @@
 
     <link href="{{ asset('modules/admin/css/theme.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('modules/admin/css/common.css') }}" rel="stylesheet" media="all">
+    <script src="{{ asset('plugins/toastr/sweetalert2@10.js') }}"></script>
 
     <script>
         const BASE_URL = "{{ url('/') }}";
@@ -33,13 +35,19 @@
     </script>
 </head>
 
-<body class="animsition">
+<body class="">
     <div class="page-wrapper">
         @include('admin::layouts.header')
 
         @include('admin::layouts.sidebar')
 
-        @yield('content')
+        <div class="page-container">
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
 
         @yield('script')
     </div>
@@ -51,6 +59,23 @@
     <script src="{{ asset('modules/admin/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/select2/select2.min.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/main.js') }}"></script>
+    <script src="{{ asset('modules/admin/js/common.js') }}"></script>
+
+    <script>
+        @if(Session::has('alert-success'))
+            Toast.fire({
+                icon: 'success',
+                title: "{{ Session::get('alert-success') }}"
+            })
+        @endif
+
+        @if(Session::has('alert-error'))
+            Toast.fire({
+                icon: 'error',
+                title: "{{ Session::get('alert-error') }}"
+            })
+        @endif
+    </script>
 </body>
 </html>
 <!-- end document-->

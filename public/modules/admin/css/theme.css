@@ -101,7 +101,7 @@ p {
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.625;
     color: #666;
     -webkit-font-smoothing: antialiased;
@@ -3941,7 +3941,7 @@ section {
 .user-data {
     border: 1px solid #e5e5e5;
     background: #fff;
-    padding-top: 44px;
+    padding: 44px 10px 10px 10px;
 }
 
 .user-data .title-3 {
@@ -14639,4 +14639,9 @@ section {
 
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
+}
+
+table tr {
+    font-size: 14px;
+    font-weight: normal !important;
 }

@@ -2,3 +2,56 @@
 .form-control:active {
     box-shadow: none;
 }
+
+@media screen 
+and (max-width: 768px) {
+    .header-desktop {
+        display: none;
+    }
+}
+
+@media screen 
+and (min-width: 769px) {
+    .header-desktop {
+        display: block;
+    }
+}
+
+table tr {
+    font-size: 14px;
+    font-weight: normal !important;
+}
+
+table tr th {
+    font-size: 14px;
+    font-weight: normal !important;
+}
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.box .box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+
+.btn-default {
+    background: gainsboro;
+}
+
+.btn-warning,
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+    color: #fff;
+}
