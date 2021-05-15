@@ -12,9 +12,11 @@
 */
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/', 'AdminController@login')->name('login');
     Route::get('/login', 'AdminController@login')->name('login');
     Route::post('/login', 'AdminController@signIn')->name('signIn');
 
-    // Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    });
 });

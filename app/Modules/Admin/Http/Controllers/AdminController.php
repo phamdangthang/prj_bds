@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginRequest;
 use Auth;
 use Session;
+use App\Models\Admin;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -25,23 +26,11 @@ class AdminController extends Controller
         $remember = isset($request->remember) ? true : false;
 
         if ( Auth()->guard('admin')->attempt($credentials, $remember) ) {
-            $url = self::_getRedirectUrl();
-            return redirect($url);
+            return redirect(route('admin.dashboard'));
         } else {
             $request->session()->flash('login-error', 'Sai tài khoản hoặc mật khẩu');
             return redirect()->back();
         }
-    }
-
-    private function _getRedirectUrl() {
-        if (Session::has('admin_redirect_url')) {
-            $url = Session::get('admin_redirect_url');
-            Session::forget('admin_redirect_url');
-        } else {
-            $url = route('admin.dashboard');
-        }
-
-        return $url;
     }
 
     public function logout() {
