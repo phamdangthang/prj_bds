@@ -67,22 +67,23 @@ class RoleController extends Controller
             $role = Role::findOrFail($id);
             $this->validate($request, [
                 'name'=>'required|max:10|unique:roles,name,'.$id,
-                'permissions' =>'required',
             ]);
 
             $input = $request->except(['permissions']);
             $permissions = $request['permissions'];
             $role->fill($input)->save();
 
-            $p_all = Permission::all();//Get all permissions
+            if (isset($request->permissions)) {
+                $p_all = Permission::all();
 
-            foreach ($p_all as $p) {
-                $role->revokePermissionTo($p); //Remove all permissions associated with role
-            }
+                foreach ($p_all as $p) {
+                    $role->revokePermissionTo($p); 
+                }
 
-            foreach ($permissions as $permission) {
-                $p = Permission::where('id', '=', $permission)->firstOrFail();
-                $role->givePermissionTo($p);  //Assign permission to role
+                foreach ($permissions as $permission) {
+                    $p = Permission::where('id', '=', $permission)->firstOrFail();
+                    $role->givePermissionTo($p);
+                }
             }
 
             return redirect()->route('admin.role.index')->with('alert-success','Update role success.');
