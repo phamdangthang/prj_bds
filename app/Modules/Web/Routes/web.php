@@ -11,8 +11,9 @@
 |
 */
 
-Route::group(['prefix' => 'web'], function () {
-    Route::get('/', function () {
-        dd('This is the Web module index page. Build something great!');
-    });
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/danh-muc-tin-tuc', 'HomeController@newsCategory')->name('news-category');
+Route::get('/danh-muc-du-an', 'HomeController@projectCategory')->name('project-category');
+Route::get('/chi-tiet-du-an', 'HomeController@projectDetail')->name('project-detail');
+Route::get('/chi-tiet-tin-tuc', 'HomeController@newstDetail')->name('news-detail');
+Route::get('/dang-tin', 'HomeController@postNews')->name('post-news');
