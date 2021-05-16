@@ -1,0 +1,19 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'SVN';
+  src: url("../fonts/SVN-Gilroy Light.otf") format("truetype"); }
+@font-face {
+  font-family: 'SVNB';
+  src: url("../fonts/SVN-Gilroy Bold.otf") format("truetype"); }
+
+body{
+	color: #333;
+	font-family: 'SVN';
+	line-height: 1.5;
+	font-size: 14px;
+}
+
+/*------------------------------------------- Index -------------------------------------------*/
+.header{
+	
+}

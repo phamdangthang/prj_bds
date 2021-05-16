@@ -1,0 +1,405 @@
+@media (max-width: 1199px) {
+  /*Index*/
+  header.header .menu ul li a {
+    padding: 7px 9px; }
+
+  header.header .filter {
+    padding-top: 64px;
+    padding-bottom: 64px; }
+
+  header.header .filter .tab-purchase form .btn-filter img, header.header .filter .tab-lease form .btn-filter img, header.header .filter .tab-project form .btn-filter img {
+    left: 18px; }
+
+  .register h2 {
+    font-size: 32px; }
+
+  footer .foot .purchase-lease-BSD ul {
+    margin-top: 40px; }
+
+  .new .info-new h4 {
+    padding-right: 43px; }
+
+  .new .c-img {
+    padding-top: 75%; }
+
+  .new .location .court:after, .new .location .floor:after {
+    right: -75px; }
+
+  /*Project-detail*/
+  .header-project-detail {
+    padding: 193px 0; } }
+@media (min-width: 992px) {
+  .col-20 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%; } }
+@media (max-width: 991px) {
+  /*Index*/
+  header.header {
+    display: none; }
+
+  header.header-mobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding-top: 10px; }
+    header.header-mobile .btn-menu {
+      color: #fff;
+      font-size: 28px; }
+    header.header-mobile .logo-mb {
+      display: block;
+      text-align: center; }
+    header.header-mobile .header-icon {
+      text-align: right; }
+      header.header-mobile .header-icon a {
+        display: inline-block; }
+    header.header-mobile .filter {
+      font-family: 'RCB';
+      padding-top: 55px; }
+      header.header-mobile .filter h2 {
+        font-size: 24px;
+        color: #fff;
+        text-align: center; }
+      header.header-mobile .filter ul {
+        margin-top: 15px; }
+        header.header-mobile .filter ul li a {
+          color: #333;
+          background: #fff;
+          transition: .3s;
+          font-size: 16px;
+          margin-right: 15px;
+          text-align: center;
+          border-radius: 0; }
+          header.header-mobile .filter ul li a.active, header.header-mobile .filter ul li a:hover {
+            color: #fff;
+            background: #f77304; }
+        header.header-mobile .filter ul li:last-child a {
+          margin-right: 0; }
+      header.header-mobile .filter .tab-purchase form, header.header-mobile .filter .tab-lease form, header.header-mobile .filter .tab-project form {
+        position: relative;
+        margin-top: 15px; }
+        header.header-mobile .filter .tab-purchase form input, header.header-mobile .filter .tab-lease form input, header.header-mobile .filter .tab-project form input {
+          width: 100%;
+          height: 45px;
+          border-radius: 25px;
+          border: none;
+          font-family: 'Tahoma';
+          padding-left: 20px;
+          padding-right: 50px; }
+          header.header-mobile .filter .tab-purchase form input::-webkit-input-placeholder, header.header-mobile .filter .tab-lease form input::-webkit-input-placeholder, header.header-mobile .filter .tab-project form input::-webkit-input-placeholder {
+            color: #333; }
+        header.header-mobile .filter .tab-purchase form a, header.header-mobile .filter .tab-lease form a, header.header-mobile .filter .tab-project form a {
+          position: absolute;
+          top: 10px;
+          right: 10px; }
+        header.header-mobile .filter .tab-purchase form .filter-advanced, header.header-mobile .filter .tab-lease form .filter-advanced, header.header-mobile .filter .tab-project form .filter-advanced {
+          background: #f77304;
+          display: block;
+          color: #fff;
+          text-align: center;
+          width: 100%;
+          height: 45px;
+          border-radius: 25px;
+          margin-top: 15px;
+          font-size: 20px;
+          position: relative;
+          padding-left: 25px;
+          padding-top: 7px;
+          padding-bottom: 7px;
+          cursor: pointer;
+          top: 0;
+          right: 0; }
+          header.header-mobile .filter .tab-purchase form .filter-advanced img, header.header-mobile .filter .tab-lease form .filter-advanced img, header.header-mobile .filter .tab-project form .filter-advanced img {
+            position: absolute;
+            top: 5px;
+            left: 258px; }
+
+  .index-right {
+    margin-top: 30px; }
+
+  .qc2, .qc3, .qc4 {
+    text-align: center; }
+
+  .form-register {
+    margin-top: 20px; }
+
+  .purchase-lease-BSD, .contact-us {
+    margin-top: 20px; }
+
+  footer .foot .purchase-lease-BSD ul {
+    margin-top: 10px; }
+
+  footer .foot .introduce .certification, footer .foot .introduce p, footer .foot .introduce h4 {
+    margin-top: 15px; }
+
+  .index-right .projects-hot .project-hot h4 {
+    font-size: 18px; }
+
+  .menu-mb {
+    z-index: 999;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    overflow: auto; }
+    .menu-mb .header-right {
+      text-align: center;
+      margin-top: 10px; }
+      .menu-mb .header-right .icon-header {
+        border-left: 1px solid #0c79d6;
+        border-right: 1px solid #0c79d6; }
+    .menu-mb .logo-mb {
+      display: block;
+      text-align: center;
+      margin-top: 10px; }
+    .menu-mb.close {
+      display: none; }
+    .menu-mb.open {
+      display: block; }
+    .menu-mb ul {
+      margin-top: 30px;
+      line-height: 2.5; }
+      .menu-mb ul li {
+        display: block;
+        position: relative;
+        color: #858585;
+        font-family: 'RCB';
+        font-size: 16px; }
+        .menu-mb ul li a {
+          padding-left: 15px;
+          display: block; }
+          .menu-mb ul li a:hover {
+            background: #ebebeb; }
+        .menu-mb ul li .btn-drop {
+          position: absolute;
+          pointer-events: none;
+          right: 0;
+          top: 0;
+          padding: 11px 15px;
+          font-weight: bold;
+          font-size: 18px; }
+        .menu-mb ul li ul {
+          margin-top: 0;
+          display: none; }
+          .menu-mb ul li ul.open {
+            display: block; }
+          .menu-mb ul li ul li {
+            font-family: 'RC'; }
+            .menu-mb ul li ul li:before {
+              position: absolute;
+              content: '\f105';
+              font-family: 'Fontawesome';
+              font-weight: bold;
+              left: 15px;
+              font-size: 18px;
+              top: -3px; }
+            .menu-mb ul li ul li a {
+              padding-left: 30px; }
+    .menu-mb .btn-filter {
+      background: #f77304;
+      color: #fff;
+      font-size: 22px;
+      font-family: 'RCB';
+      width: -webkit-fill-available;
+      position: relative;
+      cursor: pointer;
+      transition: .3s;
+      padding-left: 38px;
+      margin: 30px 15px 0 15px; }
+      .menu-mb .btn-filter img {
+        position: absolute;
+        left: 50px; }
+      .menu-mb .btn-filter:hover {
+        background: rgba(247, 115, 4, 0.7215686275); }
+    .menu-mb .close {
+      font-size: 30px;
+      color: #3e3939;
+      position: absolute;
+      right: 4px; }
+
+  .header-project-detail {
+    padding: 89px 0; }
+
+  /*News-detail-2*/
+  .news-detail-2 .extension span {
+    display: block;
+    width: 200px; }
+    .news-detail-2 .extension span i {
+      float: right; } }
+@media (max-width: 767px) {
+  /*Index*/
+  .new .location .court:after, .new .location .floor:after {
+    right: -45px; }
+
+  .slider-banner .c-img {
+    padding-top: 60%; }
+
+  header.header-mobile .filter {
+    padding-top: 20px; }
+
+  header.header-mobile .filter .tab-purchase form .filter-advanced img, header.header-mobile .filter .tab-lease form .filter-advanced img, header.header-mobile .filter .tab-project form .filter-advanced img {
+    left: 170px; }
+
+  .new .hot {
+    z-index: 2; }
+
+  .new .info-new h4, .new .info-new span, .new .info-new .price span {
+    font-size: 12px; }
+
+  .new .c-img {
+    padding-top: 100%; }
+
+  .purchase-lease-BSD {
+    display: none; }
+
+  /*Cate-project*/
+  .cate-project .new-project .content-new-project {
+    margin-top: 10px; } }
+@media (max-width: 575px) {
+  /*Index*/
+  .slider-banner .c-img {
+    padding-top: 67%; }
+
+  header.header-mobile .filter .tab-purchase form .filter-advanced img, header.header-mobile .filter .tab-lease form .filter-advanced img, header.header-mobile .filter .tab-project form .filter-advanced img {
+    left: 30%; }
+
+  header.header-mobile .filter {
+    padding-top: 15px; }
+
+  .header-project-detail h2 {
+    font-size: 22px; }
+
+  .header-project-detail ul {
+    font-size: 14px; }
+
+  /*Project-detail*/
+  .project-detail table tr td:nth-child(1) {
+    width: auto; }
+
+  .project-detail .table-detail-advertised-2 tr td:nth-child(even) {
+    padding: 0 10px; }
+
+  .project-detail .nav-pills.menu-info-project-2 .nav-item .nav-link {
+    font-size: 14px; }
+
+  .project-detail .table-detail-advertised-1 tr td:nth-child(2) {
+    padding: 0 15px; }
+
+  /*News-detail-2*/
+  .news-detail-2 .info-main-news-detai-2 .info-main {
+    display: block; } }
+@media (max-width: 480px) {
+  /*Index*/
+  .title-cate, .news-latest .cate form span, .news-latest .cate form select {
+    font-size: 14px; }
+
+  .news-latest .cate form select {
+    padding: 4px 10px; }
+
+  .new .info-new .door-direction, .new .info-new .balcony {
+    display: none; }
+
+  .info-new {
+    padding-left: 0; }
+
+  .new .location .court:after, .new .location .floor:after {
+    right: -30px; }
+
+  .new .info-new .badroom, .new .info-new .door-direction, .new .info-new .balcony {
+    padding-left: 30px; }
+
+  .index-right .area {
+    display: none; }
+
+  .index-right .qc3 {
+    display: none; }
+
+  .purchase-lease-BSD-mb {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+    .purchase-lease-BSD-mb h4 {
+      color: #0c79d6;
+      font-family: 'Tahoma';
+      font-size: 18px;
+      font-weight: bold; }
+    .purchase-lease-BSD-mb ul {
+      line-height: 2;
+      font-size: 16px;
+      font-family: 'US'; }
+      .purchase-lease-BSD-mb ul li {
+        position: relative; }
+        .purchase-lease-BSD-mb ul li:before {
+          position: absolute;
+          content: '';
+          left: 5px;
+          top: 14px;
+          border-radius: 100%;
+          width: 5px;
+          height: 5px;
+          background: #0c79d6; }
+        .purchase-lease-BSD-mb ul li a {
+          margin-left: 20px;
+          display: inline-block; }
+
+  /*Project-detail*/
+  .project-detail table tr td, .project-detail .table-detail-advertised-1 tr td:nth-child(2), .project-detail .table-detail-advertised-2 tr td:nth-child(even) {
+    padding: 0 5px; }
+
+  .project-detail table tr td:nth-child(1) {
+    width: 70px; } }
+@media (max-width: 450px) {
+  /*Index*/
+  .slider-banner .c-img {
+    padding-top: 80%; }
+
+  header.header-mobile .filter .tab-purchase form .filter-advanced img, header.header-mobile .filter .tab-lease form .filter-advanced img, header.header-mobile .filter .tab-project form .filter-advanced img {
+    left: 23%; }
+
+  .news-latest .cate form {
+    display: block;
+    float: none;
+    margin-top: 15px; }
+
+  .new .info-new .acreage, .new .info-new .price, .new .info-new .badroom, .new .info-new .door-direction, .new .info-new .balcony, .new .info-new .project {
+    display: block;
+    width: 100%; }
+
+  .col-20 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .new .location .court:after, .new .location .floor:after {
+    right: -25px; } }
+@media (max-width: 400px) {
+  /*Index*/
+  .new .location .court:after, .new .location .floor:after {
+    right: -19px; } }
+@media (max-width: 360px) {
+  /*Index*/
+  .slider-banner .c-img {
+    padding-top: 105%; }
+
+  header.header-mobile .filter h2 {
+    font-size: 21px; }
+
+  .new .location .court:after, .new .location .floor:after {
+    right: -12px; } }
+@media (max-width: 320px) {
+  /*Index*/
+  .new .location .court:after, .new .location .floor:after {
+    right: -5px; } }
+
+/*# sourceMappingURL=media.css.map */
