@@ -12,8 +12,12 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/danh-muc-tin-tuc', 'HomeController@newsCategory')->name('news-category');
-Route::get('/danh-muc-du-an', 'HomeController@projectCategory')->name('project-category');
-Route::get('/chi-tiet-du-an', 'HomeController@projectDetail')->name('project-detail');
-Route::get('/chi-tiet-tin-tuc', 'HomeController@newstDetail')->name('news-detail');
-Route::get('/dang-tin', 'HomeController@postNews')->name('post-news');
+
+// du an
+Route::get('/danh-muc-du-an', 'ProjectController@index')->name('project-index');
+Route::get('/chi-tiet-du-an', 'ProjectController@detail')->name('project-detail');
+
+// tin tuc
+Route::get('/danh-muc-tin-tuc', 'PostController@index')->name('news-index');
+Route::get('/chi-tiet-tin-tuc', 'PostController@detail')->name('news-detail');
+Route::get('/dang-tin', 'PostController@news')->name('post-news');
