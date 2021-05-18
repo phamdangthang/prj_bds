@@ -4,6 +4,7 @@ namespace App\Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginRequest;
+use App\Http\Requests\UpdateProfileAdminRequest;
 use Auth;
 use Session;
 use App\Models\Admin;
@@ -36,5 +37,26 @@ class AdminController extends Controller
     public function logout() {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
+    }
+
+    public function profile() {
+        $admin = auth()->guard('admin')->user();
+        return view('admin::auth.profile', compact('admin'));
+    }
+
+    public function updateProfile(UpdateProfileAdminRequest $request) {
+        $params = $request->all();
+        unset($params['_token']);
+
+        if ($params['password']) {
+            $params = array_merge($params, [
+                'password' => Hash::make($params['password'])
+            ]);
+        } else {
+            unset($params['password']);
+        }
+        
+        Admin::where('email', $params['email'])->update($params);
+        return redirect()->back()->with('alert-success', 'Cập nhật thông tin tài khoản thành công!');
     }
 }

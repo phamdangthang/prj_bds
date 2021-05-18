@@ -18,6 +18,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+        Route::get('/logout', 'AdminController@logout')->name('logout');
+        Route::get('/profile', 'AdminController@profile')->name('profile');
+        Route::post('/profile', 'AdminController@updateProfile')->name('profile.update');
+
+        // Tin tức
+        Route::group(['prefix' => 'blog'], function () {
+            Route::get('/index', 'BlogController@index')->name('blog.index');
+
+            Route::get('/create', 'BlogController@create')->name('blog.create');
+            Route::post('/create', 'BlogController@store')->name('blog.store');
+
+            Route::get('/edit/{id}', 'BlogController@edit')->name('blog.edit');
+            Route::post('/update/{id}', 'BlogController@update')->name('blog.update');
+
+            Route::get('/delete/{id}', 'BlogController@delete')->name('blog.delete');
+        });
 
         // Thành viên
         Route::group(['prefix' => 'member'], function(){

@@ -36,10 +36,10 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="{{ asset('modules/admin/images/icon/avatar-01.jpg') }}" alt="John Doe" />
+                                <img src="{{ asset('modules/admin/images/icon/avatar-01.jpg') }}" alt="" />
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">john doe</a>
+                                <a class="js-acc-btn" href="#">{{ auth()->guard('admin')->user()->name }}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
@@ -50,28 +50,24 @@
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">john doe</a>
+                                            <a href="javascript:void(0)">{{ auth()->guard('admin')->user()->name }}</a>
                                         </h5>
-                                        <span class="email">johndoe@example.com</span>
+                                        <span class="email">{{ auth()->guard('admin')->user()->email }}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                        <a href="{{ route('admin.profile') }}">
+                                            <i class="zmdi zmdi-account"></i>
+                                            Thông tin cá nhân
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-power"></i>Logout</a>
+                                    <a href="{{ route('admin.logout') }}">
+                                        <i class="zmdi zmdi-power"></i>
+                                        Đăng xuất
+                                    </a>
                                 </div>
                             </div>
                         </div>

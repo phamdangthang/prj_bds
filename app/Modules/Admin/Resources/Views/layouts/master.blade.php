@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,13 +22,14 @@
     <link href="{{ asset('modules/admin/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
 
     <link href="{{ asset('modules/admin/vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('modules/admin/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('modules/admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('modules/admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
 
     <link href="{{ asset('modules/admin/css/theme.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('modules/admin/css/common.css') }}" rel="stylesheet" media="all">
+    <script src="{{ asset('modules/admin/vendor/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/toastr/sweetalert2@10.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
     <script>
         const BASE_URL = "{{ url('/') }}";
@@ -52,10 +54,8 @@
         @yield('script')
     </div>
 
-    <script src="{{ asset('modules/admin/vendor/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/bootstrap-4.1/popper.min.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('modules/admin/vendor/animsition/animsition.min.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/select2/select2.min.js') }}"></script>
     <script src="{{ asset('modules/admin/vendor/main.js') }}"></script>

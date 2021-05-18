@@ -26,22 +26,12 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="fas fa-table"></i>Tables</a>
-                </li>
-                <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
-                </li>
+                <li class="{{ request()->segment(2) === 'blog' ? 'active' : '' }}">
+					<a href="{{ route('admin.blog.index') }}">
+						<i class="fa fa-newspaper"></i>
+						<span>Tin tức</span>
+					</a>
+				</li>
                 <li class="{{ request()->segment(2) === 'member' ? 'active' : '' }}">
 					<a href="{{ route('admin.member.index') }}">
 						<i class="fa fa-user"></i>

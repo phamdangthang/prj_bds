@@ -11,6 +11,17 @@
 |
 */
 
+Route::get('/dang-ky', 'UserController@register')->name('register');
+Route::post('/dang-ky', 'UserController@postRegister')->name('submit-register');
+
+Route::get('/dang-nhap', 'UserController@login')->name('login');
+Route::post('/dang-nhap', 'UserController@postLogin')->name('submit-login');
+
+Route::get('/dang-xuat', 'UserController@logout')->name('logout');
+
+Route::get('/cap-nhat-thong-tin', 'UserController@profile')->name('profile');
+Route::post('/cap-nhat-thong-tin', 'UserController@updateProfile')->name('profile.update');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 // du an

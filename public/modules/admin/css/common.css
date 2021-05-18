@@ -55,3 +55,8 @@ table tr th {
 .btn-warning:active {
     color: #fff;
 }
+
+#media .modal-dialog {
+    top: 10% !important;
+    height: 85% !important;
+}

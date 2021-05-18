@@ -562,8 +562,6 @@
 							<span>11/12/2018</span>
 						</div>
 					</div>
-					
-
 				</div>
 
 				<a href="" class="qc3"><img src="{{ asset('images/qc3.jpg') }}" alt=""></a>

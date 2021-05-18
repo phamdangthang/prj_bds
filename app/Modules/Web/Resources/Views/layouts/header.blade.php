@@ -54,8 +54,17 @@
 			<div class="col-lg-auto header-right">
 				<a href="" class="post-news"><img src="{{ asset('images/dangtin2.png') }}" alt=""><span>ĐĂNG TIN</span></a>
 				<div class="icon-header">
-					<a href=""><img src="{{ asset('images/icon1.png') }}" alt=""></a>
-					<a href=""><img src="{{ asset('images/icon2.png') }}" alt=""></a>
+					@if (auth()->user())
+						<a href="{{ route('profile') }}">{{ auth()->user()->name }}</a>
+						<a href="{{ route('logout') }}">
+							<img src="{{ asset('images/icon2.png') }}" alt="">
+						</a>
+					@else
+						<a href="javascript:void(0)" onclick="showModalUser('login')">
+							<img src="{{ asset('images/icon1.png') }}" alt="">
+						</a>
+					@endif
+					
 				</div>
 				<div class="language">
 					<a href=""><img src="{{ asset('images/vn.jpg') }}" alt=""></a>
@@ -435,3 +444,5 @@
 	</ul>
 	<button class="btn-filter"><img src="{{ asset('images/icon-filter.png') }}" alt="">LỌC NÂNG CAO</button>
 </div>
+
+@include('web::user.includes.modal-register-login')

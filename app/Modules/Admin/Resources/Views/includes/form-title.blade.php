@@ -32,7 +32,7 @@
 </div>
 
 <script>
-    $('input[name=title]').keyup(function() {
+    $('input[name=name]').keyup(function() {
         $('input[name=slug]').val(stringToSlug(this.value));
         $('input[name=slug]').trigger('keyup');
     });

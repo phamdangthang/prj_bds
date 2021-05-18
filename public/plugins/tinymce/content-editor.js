@@ -1,4 +1,5 @@
 var contentEditor;
+console.log('hihi')
 tinymce.init({ 
     selector:'#content',
     content_css: [
