@@ -24,7 +24,8 @@ class CreateMediasTable extends Migration
             $table->string('place_storage', 100)->nullable();
             $table->string('size', 100)->nullable();
             $table->string('status')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable(false)->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable(false)->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

@@ -22,6 +22,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/profile', 'AdminController@profile')->name('profile');
         Route::post('/profile', 'AdminController@updateProfile')->name('profile.update');
 
+        // Danh mục (Dự án + Tin tức)
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/index', 'CategoryController@index')->name('category.index');
+
+            Route::get('/create', 'CategoryController@create')->name('category.create');
+            Route::post('/create', 'CategoryController@store')->name('category.store');
+
+            Route::get('/edit/{id}', 'CategoryController@edit')->name('category.edit');
+            Route::post('/update/{id}', 'CategoryController@update')->name('category.update');
+
+            Route::get('/delete/{id}', 'CategoryController@delete')->name('category.delete');
+        });
+
         // Tin tức
         Route::group(['prefix' => 'blog'], function () {
             Route::get('/index', 'BlogController@index')->name('blog.index');

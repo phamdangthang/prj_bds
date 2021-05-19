@@ -26,6 +26,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{ request()->segment(2) === 'category' ? 'active' : '' }}">
+					<a href="{{ route('admin.category.index') }}">
+						<i class="fa fa-copyright"></i>
+						<span>Danh mục</span>
+					</a>
+				</li>
                 <li class="{{ request()->segment(2) === 'blog' ? 'active' : '' }}">
 					<a href="{{ route('admin.blog.index') }}">
 						<i class="fa fa-newspaper"></i>

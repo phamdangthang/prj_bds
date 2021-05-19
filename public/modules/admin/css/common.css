@@ -60,3 +60,22 @@ table tr th {
     top: 10% !important;
     height: 85% !important;
 }
+
+.error {
+    color: red;
+}
+
+.label {
+    padding: 1px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #fff;
+}
+
+.label-success {
+    background-color: #33a745;
+}
+
+.label-primary {
+    background-color: #4272d7;
+}
