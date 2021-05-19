@@ -23,6 +23,9 @@ Route::get('/cap-nhat-thong-tin', 'UserController@profile')->name('profile');
 Route::post('/cap-nhat-thong-tin', 'UserController@updateProfile')->name('profile.update');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/dang-nhap', function () {
+    return redirect('/');
+});
 
 // du an
 Route::get('/danh-muc-du-an', 'ProjectController@index')->name('project-index');
@@ -31,4 +34,8 @@ Route::get('/chi-tiet-du-an', 'ProjectController@detail')->name('project-detail'
 // tin tuc
 Route::get('/danh-muc-tin-tuc', 'PostController@index')->name('news-index');
 Route::get('/chi-tiet-tin-tuc', 'PostController@detail')->name('news-detail');
-Route::get('/dang-tin', 'PostController@news')->name('post-news');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dang-tin', 'PostController@news')->name('post-news');
+    Route::post('/dang-tin', 'PostController@store')->name('post-news.store');
+});

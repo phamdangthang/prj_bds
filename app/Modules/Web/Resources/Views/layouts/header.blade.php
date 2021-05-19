@@ -52,7 +52,19 @@
 				</ul>
 			</div>
 			<div class="col-lg-auto header-right">
-				<a href="" class="post-news"><img src="{{ asset('images/dangtin2.png') }}" alt=""><span>ĐĂNG TIN</span></a>
+
+				@if (auth()->user())
+					<a href="{{ route('post-news') }}" class="post-news">
+						<img src="{{ asset('images/dangtin2.png') }}" alt="">
+						<span>ĐĂNG TIN</span>
+					</a>
+				@else
+					<a href="javascript:void(0)" class="post-news" onclick="showModalUser('login')">
+						<img src="{{ asset('images/dangtin2.png') }}" alt="">
+						<span>ĐĂNG TIN</span>
+					</a>
+				@endif
+				
 				<div class="icon-header">
 					@if (auth()->user())
 						<a href="{{ route('profile') }}">{{ auth()->user()->name }}</a>

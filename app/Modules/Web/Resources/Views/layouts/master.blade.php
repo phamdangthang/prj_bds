@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{ asset('scss/media.css') }}" type="text/css">
 		<link rel="stylesheet" href="{{ asset('slick/slick.css') }}" type="text/css">
 		<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}" type="text/css">
+		<link href="{{ asset('modules/user/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
 		<script src="{{ asset('js/jquery-2.2.1.min.js') }}"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 		<script src="{{ asset('plugins/toastr/sweetalert2@10.js') }}"></script>

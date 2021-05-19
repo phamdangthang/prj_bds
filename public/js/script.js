@@ -3,7 +3,7 @@ var Slider_banner=function(){
 	if($('.slider-banner').length>0){
 		$('.slider-banner').slick({
 			autoplay: true,
-			autoplaySpeed: 1000,
+			autoplaySpeed: 4000,
 			infinite: true,
 			speed: 800,
 			arrows: false,
@@ -17,7 +17,7 @@ var Slider_project_hot=function(){
 	if($('.slider-project-hot').length>0){
 		$('.slider-project-hot').slick({
 			autoplay: true,
-			autoplaySpeed: 1000,
+			autoplaySpeed: 4000,
 			infinite: true,
 			speed: 800,
 			arrows: false,

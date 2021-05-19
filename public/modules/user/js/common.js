@@ -4,6 +4,36 @@ $.ajaxSetup({
     }
 });
 
+
+$("body").on("change", ".change_input", function(event) {
+    let scop = this;
+    if (scop.files && scop.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $(scop).parent().find('img.img-preview').attr('src', e.target.result);
+            $(scop).parent().find('img.img-preview').removeClass('d-none');
+            
+            $(scop).parent().parent().find('.icon-remove').removeClass('d-none');
+        }
+        reader.readAsDataURL(scop.files[0]);
+    }
+});
+$('.icon-remove').on('click', function () {
+    let html = `
+        <div class="item">
+            <i class="fe-x icon-remove d-none"></i>
+            <label>
+                <div class="label-mask"></div>
+                
+                <i class="fe-image icon-plus cursor-pointer"></i>
+                <img src="" class="img-preview d-none">
+                <input accept="image/*" type="file" class="change_input d-none" name="images[]">
+            </label>
+        </div>
+    `;
+    $(this).parent().replaceWith(html);
+});
+
 const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',

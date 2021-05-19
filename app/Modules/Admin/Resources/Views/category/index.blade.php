@@ -18,7 +18,7 @@
                                             <div class="col-md-4">
                                                 <select name="type" class="form-control" placeholder="Loại danh mục">
                                                     <option value=""></option>
-                                                    <option value="{{ PROJECT }}" @if(request()->type == PROJECT) selected @endif>Dự án</option>
+                                                    <option value="{{ PROJECT }}" @if(request()->type != '' && request()->type == PROJECT) selected @endif>Dự án</option>
                                                     <option value="{{ NEWS }}" @if(request()->type == NEWS) selected @endif>Tin tức</option>
                                                 </select>
                                             </div>
