@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\City;
 use DB;
 use Str;
+use File;
 
 use App\Http\Controllers\Controller;
 
@@ -45,7 +46,6 @@ class PostController extends AppController
     public function store(PostRequest $request) {
         $params = $request->all();
         DB::beginTransaction();
-        dd($params);
 
         $dataInsert = [
             'project_id' => $params['project_id'],
@@ -53,6 +53,7 @@ class PostController extends AppController
             'address' => $params['address'],
             'price' => $params['price'],
             'guide' => $params['guide'],
+            'usage_status' => PENDING,
             'status' => PENDING,
             'acreage' => $params['acreage'],
             'number_of_bedrooms' => $params['number_of_bedrooms'],

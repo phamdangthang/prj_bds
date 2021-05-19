@@ -37,7 +37,7 @@
 						</div>
 						<div class="col-lg-8 col-md-12 col-sm-12 col-12 pad5">
 							<p>Địa chỉ chi tiết <span class="required">*</span></p>
-							<input type="text" name="{{ old('address') }}" placeholder="Địa chỉ số 243 Phạm Văn Đồng">
+							<input type="text" value="{{ old('address') }}" name="address" placeholder="Địa chỉ số 243 Phạm Văn Đồng">
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<p>Giá (VNĐ) <span class="required">*</span></p>

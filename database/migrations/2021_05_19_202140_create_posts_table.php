@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->integer('city_id');
             $table->string('address');
             $table->string('price');
-            $table->text('guide');
+            $table->text('guide')->nullable();
             $table->string('usage_status', 20)->comment('tình trạng sử dụng');
             $table->string('status', 20)->comment('trạng thái duyệt');
             $table->string('acreage', 20)->comment('diện tích');
