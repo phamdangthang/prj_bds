@@ -4,22 +4,22 @@
 	<div class="container post-news">
 		<div class="row row5">
 			<div class="col pad5">
-				<form action="{{ route('post-news.store') }}" method="POST" enctype="multipart/form-data">
+				<form class="form-project-news" action="{{ route('project-news.store') }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<p>Lưu ý<span class="required">*</span>: Bạn phải đăng ít nhất 1 ảnh.</p>
 					<div class="row row5">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
+						{{-- <div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
 							<p>Danh mục <span class="required">*</span></p>
-							<select name="project_id">
+							<select name="category_id" required>
 								<option value=""></option>
 								@foreach ($categories as $item)
 									<option value="{{ $item->id }}">{{ $item->name }}</option>
 								@endforeach
 							</select>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
-							<p>Dự án <span class="required">*</span></p>
-							<select name="project_id">
+						</div> --}}
+						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
+							<p>Danh mục <span class="required">*</span></p>
+							<select name="category_id" required>
 								<option value=""></option>
 								@foreach ($projects as $item)
 									<option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -28,7 +28,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-6 col-12 pad5">
 							<p>Thành phố <span class="required">*</span></p>
-							<select name="city_id">
+							<select name="city_id" required>
 								<option value=""></option>
 								@foreach ($cities as $item)
 									<option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -37,11 +37,11 @@
 						</div>
 						<div class="col-lg-8 col-md-12 col-sm-12 col-12 pad5">
 							<p>Địa chỉ chi tiết <span class="required">*</span></p>
-							<input type="text" value="{{ old('address') }}" name="address" placeholder="Địa chỉ số 243 Phạm Văn Đồng">
+							<input type="text" value="{{ old('address') }}" required name="address" placeholder="Địa chỉ số 243 Phạm Văn Đồng">
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<p>Giá (VNĐ) <span class="required">*</span></p>
-							<input type="text" name="price" value="{{ old('price') }}" placeholder="100.000">
+							<input type="text" name="price" required value="{{ old('price') }}" placeholder="100.000">
 							<span class="node">Lưu ý : Tin rao để mệnh giá tiền Việt Nam đồng</span>
 						</div>
 						<div class="col-lg-8 col-md-12 col-sm-12 col-12 pad5">
@@ -50,7 +50,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-6 col-12 pad5">
 							<p>Tình trạng BĐS <span class="required">*</span></p>
-							<select name="usage_status">
+							<select name="usage_status" required>
 								<option value=""></option>
 								<option value="{{ NEW_TO_USE }}">Mới xây</option>
 								<option value="{{ USED_ONE_YEAR }}">Đã sử dụng 1 năm</option>
@@ -60,7 +60,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-6 col-12 pad5">
 							<p>Diện tích (m²) <span class="required">*</span></p>
-							<input type="text" name="acreage" value="{{ old('acreage') }}" placeholder="Nhập diện tích">
+							<input type="text" name="acreage" required value="{{ old('acreage') }}" placeholder="Nhập diện tích">
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<div class="row row5">
@@ -68,7 +68,7 @@
 									<p>Số phòng ngủ <span class="required">*</span></p>
 									<div class="minus-plus">
 										<span class="minus-bedroom" aria-hidden="true">-</span>
-										<input type="number" value="0" name="number_of_bedrooms" class="inputnumber-bedroom">
+										<input type="number" required value="0" name="number_of_bedrooms" class="inputnumber-bedroom">
 										<span class="plus-bedroom" aria-hidden="true">+</span>
 									</div>
 								</div>
@@ -76,7 +76,7 @@
 									<p>Số nhà vệ sinh <span class="required">*</span></p>
 									<div class="minus-plus">
 										<span class="minus-wc" aria-hidden="true">-</span>
-										<input type="number" name="number_of_toilets" value="0" class="inputnumber-wc">
+										<input type="number" required name="number_of_toilets" value="0" class="inputnumber-wc">
 										<span class="plus-wc" aria-hidden="true">+</span>
 									</div>
 								</div>
@@ -84,15 +84,15 @@
 						</div>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Tiêu đề  <span class="required">*</span></p>
-							<input type="text" name="name" value="{{ old('name') }}" placeholder="Nhập tiêu đề">
+							<input type="text" name="name" required value="{{ old('name') }}" placeholder="Nhập tiêu đề">
 						</div>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Mô tả chi tiết  <span class="required">*</span></p>
-							<textarea name="description" rows="4" placeholder="Nhập mô tả chi tiết"></textarea>
+							<textarea name="description" required rows="4" placeholder="Nhập mô tả chi tiết"></textarea>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
 							<p>Hướng cửa <span class="required">*</span></p>
-							<select name="door_direction">
+							<select name="door_direction" required>
 								<option value=""></option>
 								<option value="{{ EAST }}">Đông</option>
 								<option value="{{ WEST }}">Tây</option>
@@ -105,7 +105,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
 							<p>Hướng ban công <span class="required">*</span></p>
-							<select name="balcony_direction">
+							<select name="balcony_direction" required>
 								<option value=""></option>
 								<option value="{{ EAST }}">Đông</option>
 								<option value="{{ WEST }}">Tây</option>
@@ -118,22 +118,22 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
 							<p>Tầng <span class="required">*</span></p>
-							<input type="text" name="floor" value="{{ old('floor') }}" placeholder="Nhập tầng">
+							<input type="text" name="floor" required value="{{ old('floor') }}" placeholder="Nhập tầng">
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
 							<p>Số hiệu căn hộ <span class="required">*</span></p>
-							<input type="text" name="apartment_number" value="{{ old('apartment_number') }}" placeholder="Nhập số hiệu căn hộ">
+							<input type="text" name="apartment_number" required value="{{ old('apartment_number') }}" placeholder="Nhập số hiệu căn hộ">
 						</div>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Thông tin chủ nhà</p>
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<p>Tên <span class="required">*</span></p>
-							<input type="text" value="{{ auth()->user()->name ?? null }}" placeholder="Nhập tên" readonly>
+							<input type="text" required value="{{ auth()->user()->name ?? null }}" placeholder="Nhập tên" readonly>
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<p>Email <span class="required">*</span></p>
-							<input type="text" value="{{ auth()->user()->email ?? null }}" placeholder="Nhập Email" readonly>
+							<input type="text" required value="{{ auth()->user()->email ?? null }}" placeholder="Nhập Email" readonly>
 						</div>
 						<div class="col-lg-4 col-md-12 col-sm-12 col-12 pad5">
 							<p>Số điện thoại <span class="required">*</span></p>
@@ -173,6 +173,7 @@
 											</div>
 										@endif
 									@endforeach
+									{!! $errors->first('images', '<span class="help-block error">:message</span>') !!}
 								</div>
 							</div>
 						</div>
@@ -186,4 +187,43 @@
 	</div>
 
 	@include('web::includes.form-register')
+@endsection
+
+@section('js')
+    <script>
+        $(".form-project-news").validate({
+            rules: {
+                category_id: "required",
+                city_id: "required",
+                address: "required",
+                price: "required",
+                usage_status: "required",
+                acreage: "required",
+                number_of_bedrooms: "required",
+                number_of_toilets: "required",
+                name: "required",
+                description: "required",
+                door_direction: "required",
+                balcony_direction: "required",
+                floor: "required",
+                apartment_number: "required",
+            },
+            messages: {
+                category_id: {required: "Trường này không được để trống"},
+                city_id: {required: "Trường này không được để trống"},
+                address: {required: "Trường này không được để trống"},
+                price: {required: "Trường này không được để trống"},
+                usage_status: {required: "Trường này không được để trống"},
+                acreage: {required: "Trường này không được để trống"},
+                number_of_bedrooms: {required: "Trường này không được để trống"},
+                number_of_toilets: {required: "Trường này không được để trống"},
+                name: {required: "Trường này không được để trống"},
+                description: {required: "Trường này không được để trống"},
+                door_direction: {required: "Trường này không được để trống"},
+                balcony_direction: {required: "Trường này không được để trống"},
+                floor: {required: "Trường này không được để trống"},
+                apartment_number: {required: "Trường này không được để trống"},
+            }
+        });
+    </script>
 @endsection

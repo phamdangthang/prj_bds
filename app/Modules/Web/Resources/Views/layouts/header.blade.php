@@ -54,7 +54,7 @@
 			<div class="col-lg-auto header-right">
 
 				@if (auth()->user())
-					<a href="{{ route('post-news') }}" class="post-news">
+					<a href="{{ route('project-news') }}" class="post-news">
 						<img src="{{ asset('images/dangtin2.png') }}" alt="">
 						<span>ĐĂNG TIN</span>
 					</a>

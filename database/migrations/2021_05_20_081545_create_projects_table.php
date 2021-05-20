@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
             $table->text('description');
-            $table->integer('category_id')->nullable()->comment('Danh mục: tin mới, tin hot, dự án mới');
-            $table->integer('project_id')->nullable()->comment('Dự án: ABC');
+            $table->integer('category_id')->nullable()->comment('Danh mục du an');
             $table->integer('city_id');
             $table->string('address');
             $table->string('price');
@@ -50,6 +49,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('projects');
     }
 }

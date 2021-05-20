@@ -48,6 +48,7 @@ class PostController extends AppController
         DB::beginTransaction();
 
         $dataInsert = [
+            'category_id' => $params['category_id'],
             'project_id' => $params['project_id'],
             'city_id' => $params['city_id'],
             'address' => $params['address'],

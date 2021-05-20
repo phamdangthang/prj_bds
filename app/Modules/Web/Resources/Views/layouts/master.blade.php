@@ -26,10 +26,6 @@
 
 		@include('web::layouts.footer')
 
-		@yield('js')
-		
-		@stack('js')
-		
 		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('js/script.js') }}"></script>
 		<script src="{{ asset('slick/slick.js') }}"></script>
@@ -51,5 +47,9 @@
 				})
 			@endif
 		</script>
+
+		@yield('js')
+				
+		@stack('js')
 	</body>
 </html>

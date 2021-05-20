@@ -36,6 +36,6 @@ Route::get('/danh-muc-tin-tuc', 'PostController@index')->name('news-index');
 Route::get('/chi-tiet-tin-tuc', 'PostController@detail')->name('news-detail');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dang-tin', 'PostController@news')->name('post-news');
-    Route::post('/dang-tin', 'PostController@store')->name('post-news.store');
+    Route::get('/dang-tin', 'ProjectController@news')->name('project-news');
+    Route::post('/dang-tin', 'ProjectController@postNews')->name('project-news.store');
 });

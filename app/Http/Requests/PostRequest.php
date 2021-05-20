@@ -21,23 +21,5 @@ class PostRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        return [
-            'project_id' => 'required',
-            'city_id' => 'required',
-            'address' => 'required',
-            'price' => 'required',
-            'usage_status' => 'required',
-            'acreage',
-            'number_of_bedrooms' => 'required',
-            'number_of_toilets' => 'required',
-            'name' => 'required',
-            'description' => 'required',
-            'door_direction' => 'required',
-            'balcony_direction' => 'required',
-            'floor' => 'required',
-            'apartment_number' => 'required',
-        ];
-    }
+    
 }
