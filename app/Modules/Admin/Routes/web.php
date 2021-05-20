@@ -35,6 +35,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/delete/{id}', 'CategoryController@delete')->name('category.delete');
         });
 
+        // Dự án
+        Route::group(['prefix' => 'project'], function () {
+            Route::get('/index', 'ProjectController@index')->name('project.index');
+
+            Route::get('/create', 'ProjectController@create')->name('project.create');
+            Route::post('/create', 'ProjectController@store')->name('project.store');
+
+            Route::get('/edit/{id}', 'ProjectController@edit')->name('project.edit');
+            Route::post('/update/{id}', 'ProjectController@update')->name('project.update');
+
+            Route::get('/delete/{id}', 'ProjectController@delete')->name('project.delete');
+        });
+
         // Tin tức
         Route::group(['prefix' => 'blog'], function () {
             Route::get('/index', 'BlogController@index')->name('blog.index');

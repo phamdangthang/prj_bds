@@ -32,6 +32,12 @@
 						<span>Danh mục</span>
 					</a>
 				</li>
+                <li class="{{ request()->segment(2) === 'project' ? 'active' : '' }}">
+					<a href="{{ route('admin.project.index') }}">
+						<i class="fa fa-product-hunt"></i>
+						<span>Dự án</span>
+					</a>
+				</li>
                 <li class="{{ request()->segment(2) === 'blog' ? 'active' : '' }}">
 					<a href="{{ route('admin.blog.index') }}">
 						<i class="fa fa-newspaper"></i>
