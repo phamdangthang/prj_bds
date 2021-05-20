@@ -32,12 +32,16 @@ class Project extends Model
         'date_of_delivery',
         'images',
     ];
-
+    
     public function user() {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function admin() {
         return $this->belongsTo('App\Models\Admin', 'admin_id', 'id');
+    }
+
+    public function city() {
+        return $this->belongsTo('App\Models\City', 'city_id', 'id');
     }
 }

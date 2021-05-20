@@ -14,14 +14,6 @@
                                             <div class="col-md-4">
                                                 <input type="text" name="search" class="form-control" placeholder="Từ khóa" value="{{ request()->search }}">
                                             </div>
-
-                                            <div class="col-md-4">
-                                                <select name="type" class="form-control" placeholder="Loại danh mục">
-                                                    <option value=""></option>
-                                                    <option value="{{ PROJECT }}" @if(request()->type != '' && request()->type == PROJECT) selected @endif>Dự án</option>
-                                                    <option value="{{ NEWS }}" @if(request()->type == NEWS) selected @endif>Tin tức</option>
-                                                </select>
-                                            </div>
     
                                             <div class="col-md-4">
                                                 <button type="submit" class="btn btn-success">
@@ -46,30 +38,45 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Tiêu đề</th>
-                                            <th>Slug</th>
-                                            <th>Loại danh mục</th>
-                                            <th style="min-width: 100px">Ngày tạo</th>
+                                            <th>Ảnh dự án</th>
+                                            <th>Tiêu dự án</th>
+                                            <th>Thành phố</th>
+                                            <th>Giá bán</th>
+                                            <th>Người đăng</th>
+                                            <th>Trạng thái</th>
+                                            <th style="min-width: 100px">Ngày đăng</th>
                                             <th style="min-width: 155px">Hành đồng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($result as $item)
+                                            @php
+                                                $images = json_decode($item->images);
+                                            @endphp
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->slug }}</td>
                                                 <td>
-                                                    @if ($item->type === PROJECT)
-                                                        <label class="label label-success">Dự án</label>
-                                                    @else
-                                                        <label class="label label-primary">Tin tức</label>
-                                                    @endif
+                                                    <div class="logo-project">
+                                                        @if (count($images) > 0)
+                                                            <img src="{{ asset($images[0]->url) }}" alt="">
+                                                        @endif
+                                                    </div>
+                                                </td>
+                                                <td style="max-width: 350px">{{ $item->name }}</td>
+                                                <td>{{ $item->city->name }}</td>
+                                                <td>{{ $item->price }}</td>
+                                                <td>{{ $item->user->name }}</td>
+                                                <td>
+                                                    @foreach ($projectStatus as $key => $status)
+                                                        @if ($item->status === $key)
+                                                            <label class="label {{ $status['label'] }}">{{ $status['text'] }}</label>
+                                                        @endif
+                                                    @endforeach
                                                 </td>
                                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.category.edit', $item->id) }}" class="btn btn-warning text-white">Sửa</a>
-                                                    <a href="{{ route('admin.category.delete', $item->id) }}" class="btn btn-danger text-white">Xóa</a>
+                                                    <a href="{{ route('admin.project.edit', $item->id) }}" class="btn btn-warning text-white">Sửa</a>
+                                                    <a href="{{ route('admin.project.delete', $item->id) }}" class="btn btn-danger text-white">Xóa</a>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -43,6 +43,7 @@ class BlogController extends Controller
             'name' => $data['name'],
             'slug' => $data['slug'],
             'content' => $data['content'],
+            'admin_id' => auth()->guard('admin')->user()->id,
             // 'status' => $data['status'],
         ];
         $created = $this->blog->insert($insert);
@@ -63,7 +64,9 @@ class BlogController extends Controller
     public function update(BlogUpdateRequest $request, $id) {
         $data = $request->all();
         $blog = $this->blog->find($id);
-        $updated = $blog->update($data);
+        $updated = $blog->update(array_merge($data, [
+            'admin_id' => auth()->guard('admin')->user()->id
+        ]));
         if ($updated) {
             return redirect()->route('admin.blog.index')->with('alert-success', 'Cập nhật tin tức thành công');
         }

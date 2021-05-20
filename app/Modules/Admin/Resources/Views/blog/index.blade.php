@@ -53,6 +53,7 @@
                                             <th>ID</th>
                                             <th>Tiêu đề</th>
                                             <th>Slug</th>
+                                            <th>Người đăng</th>
                                             <th style="min-width: 100px">Ngày tạo</th>
                                             <th style="min-width: 155px">Hành đồng</th>
                                         </tr>
@@ -63,6 +64,7 @@
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->slug }}</td>
+                                                <td>{{ $item->admin->name }}</td>
                                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                                 <td>
                                                     <a href="{{ route('admin.blog.edit', $item->id) }}" class="btn btn-warning text-white">Sửa</a>

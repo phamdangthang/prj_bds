@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <form class="form-category" action="{{ route('admin.category.store') }}" method="POST" novalidate>
-            @include('admin::category._form', ['routeType' => 'create'])
+        <form class="form-project" action="{{ route('admin.project.store') }}" method="POST" novalidate>
+            @include('admin::project._form', ['routeType' => 'create'])
         </form>
     </div>
 @endsection

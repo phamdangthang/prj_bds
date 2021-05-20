@@ -1,17 +1,18 @@
+@php $inputName = isset($name) ? $name : 'content'; @endphp
 <div class="form-group">
-    <label for="content">{{ $contentTitle ?? __('Nội dung') }}</label> <br>
+    <label for="{{ $inputName }}">{{ $contentTitle ?? __('Nội dung') }}</label> <br>
     <button type="button" class="btn btn-light btn-add-images mb-1" onclick="initMediaEditor(contentEditor)">
         <i class="fa fa-music" aria-hidden="true"></i>
         {{ __('Media') }}
     </button>
     <textarea
-        name="content"
+        name="{{ $inputName }}"
         id="content"
         class="form-control form-control-custom"
         rows="20"
-    >{{ old('content',  $dataEdit->content ?? null) }}
+    >{{ old($inputName,  $dataEdit->$inputName ?? null) }}
     </textarea>
-    {!! $errors->first('content', '<span class="help-block error">:message</span>') !!}
+    {!! $errors->first('{{ $inputName }}', '<span class="help-block error">:message</span>') !!}
 </div>
 
 <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>

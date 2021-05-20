@@ -55,11 +55,28 @@
         define('SOUTHWEST', '6');
     }
 
+    // chờ duyệt
     if (!defined('PENDING')) {
         define('PENDING', 'pending');
     }
 
+    // đã duyệt
     if (!defined('APPROVED')) {
         define('APPROVED', 'approved');
+    }
+
+    // đặt hàng thành công
+    if (!defined('ORDER')) {
+        define('ORDER', 'order');
+    }
+
+    // hoàn thành
+    if (!defined('COMPLETE')) {
+        define('COMPLETE', 'complete');
+    }
+
+    // đã hủy
+    if (!defined('CANCEL')) {
+        define('CANCEL', 'cancel');
     }
 ?>

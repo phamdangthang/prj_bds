@@ -12,6 +12,11 @@ class Blog extends Model
         'name',
         'slug',
         'content',
-        'status'
+        'status',
+        'admin_id',
     ];
+
+    public function admin() {
+        return $this->belongsTo('App\Models\Admin', 'admin_id', 'id');
+    }
 }

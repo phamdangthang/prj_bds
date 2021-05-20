@@ -61,7 +61,8 @@ table tr th {
     height: 85% !important;
 }
 
-.error {
+.error,
+.required {
     color: red;
 }
 
@@ -78,4 +79,18 @@ table tr th {
 
 .label-primary {
     background-color: #4272d7;
+}
+
+.label-bluelight {
+    background-color: #17a2b8;
+}
+
+.logo-project {
+    width: 60px;
+    height: 60px;
+}
+
+.logo-project img {
+    width: 100%;
+    height: 100%;
 }
