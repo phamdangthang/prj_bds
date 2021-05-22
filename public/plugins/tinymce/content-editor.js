@@ -1,5 +1,5 @@
 var contentEditor;
-console.log('hihi')
+console.log('Phạm Đăng Thắng')
 tinymce.init({ 
     selector:'#content',
     content_css: [

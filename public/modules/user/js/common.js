@@ -18,7 +18,7 @@ $("body").on("change", ".change_input", function(event) {
         reader.readAsDataURL(scop.files[0]);
     }
 });
-$('.icon-remove').on('click', function () {
+$('body').on('click', '.icon-remove', function () {
     let html = `
         <div class="item">
             <i class="fe-x icon-remove d-none"></i>

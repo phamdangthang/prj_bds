@@ -52,7 +52,7 @@ class ProjectController extends AppController
             'address' => $params['address'],
             'price' => $params['price'],
             'guide' => $params['guide'],
-            'usage_status' => PENDING,
+            'usage_status' => $params['usage_status'],
             'status' => PENDING,
             'acreage' => $params['acreage'],
             'number_of_bedrooms' => $params['number_of_bedrooms'],
@@ -71,7 +71,7 @@ class ProjectController extends AppController
         try {
             $images = $params['images'];
             if (isset($images) && count($images) > 0) {
-                $folderName = '/images/post/'.auth()->user()->id.'/images';
+                $folderName = '/images/project/'.auth()->user()->id.'/images';
                 foreach ($images as $key => $file) {
                     $fileName = time().$key.'.'.$file->getClientOriginalExtension();
                     if (!File::exists(public_path($folderName))) {

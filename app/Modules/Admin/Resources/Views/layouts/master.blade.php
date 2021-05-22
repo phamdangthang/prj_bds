@@ -29,6 +29,7 @@
     <link href="{{ asset('modules/admin/css/common.css') }}" rel="stylesheet" media="all">
     <script src="{{ asset('modules/admin/vendor/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/toastr/sweetalert2@10.js') }}"></script>
+    <link href="{{ asset('modules/user/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
     <script>

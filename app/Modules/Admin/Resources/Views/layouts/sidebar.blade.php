@@ -34,7 +34,7 @@
 				</li>
                 <li class="{{ request()->segment(2) === 'project' ? 'active' : '' }}">
 					<a href="{{ route('admin.project.index') }}">
-						<i class="fa fa-product-hunt"></i>
+						<i class="fe-package"></i>
 						<span>Dự án</span>
 					</a>
 				</li>
