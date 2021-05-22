@@ -1,5 +1,7 @@
 @extends('admin::layouts.master')
 
+@section('title') Dự án @endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -66,7 +68,7 @@
                                                 <td>{{ $item->city->name }}</td>
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->user->name }}</td>
-                                                <td>
+                                                <td style="min-width: 110px">
                                                     @foreach ($projectStatus as $key => $status)
                                                         @if ($item->status === $key)
                                                             <label class="label {{ $status['label'] }}">{{ $status['text'] }}</label>

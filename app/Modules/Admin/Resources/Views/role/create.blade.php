@@ -1,5 +1,7 @@
 @extends('admin::layouts.master')
 
+@section('title') Vai trò @endsection
+
 @section('breadcrumb')
     <section class="content-header">
         <h1>

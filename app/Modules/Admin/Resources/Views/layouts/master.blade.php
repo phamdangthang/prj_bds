@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     <!-- Title Page-->
-    <title>Forms</title>
+    <title>@yield('title')</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{ asset('modules/admin/css/font-face.css') }}" rel="stylesheet" media="all">

@@ -308,3 +308,10 @@ select {
 input[readonly] {
     background: #f9f9f9;
 }
+
+.new-project .description {
+    white-space: break-spaces;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100px;
+}

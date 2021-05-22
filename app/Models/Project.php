@@ -22,6 +22,7 @@ class Project extends Model
         'acreage',
         'number_of_bedrooms',
         'number_of_toilets',
+        'building',
         'door_direction',
         'balcony_direction',
         'floor',
@@ -43,5 +44,9 @@ class Project extends Model
 
     public function city() {
         return $this->belongsTo('App\Models\City', 'city_id', 'id');
+    }
+
+    public function category() {
+        return $this->belongsTo('App\Models\Category');
     }
 }

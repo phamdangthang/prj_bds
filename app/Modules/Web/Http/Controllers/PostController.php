@@ -18,6 +18,7 @@ class PostController extends AppController
     private $post;
 
     public function __construct(Post $post) {
+        parent::__construct();
         $this->post = $post;
     }
 

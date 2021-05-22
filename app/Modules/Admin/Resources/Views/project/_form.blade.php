@@ -24,6 +24,7 @@
                                     >{{ $item->name }}</option>
                                 @endforeach
                             </select>
+                            {!! $errors->first('category_id', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -38,6 +39,7 @@
                                     >{{ $item->name }}</option>
                                 @endforeach
                             </select>
+                            {!! $errors->first('city_id', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
                 </div>
@@ -45,6 +47,7 @@
                 <div class="form-group">
                     <label>Địa chỉ <span class="required">*</span></label>
                     <textarea name="address" rows="2" class="form-control">{{ old('address', $dataEdit->address ?? '') }}</textarea>
+                    {!! $errors->first('address', '<span class="help-block error">:message</span>') !!}
                 </div>
 
                 <div class="row">
@@ -84,12 +87,14 @@
                                     >{{ $status }}</option>
                                 @endforeach
 							</select>
+                            {!! $errors->first('usage_status', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>Diện tích (m²) <span class="required">*</span></label>
 							<input type="text" class="form-control" name="acreage" required value="{{ old('acreage', $dataEdit->acreage ?? '') }}">
+                            {!! $errors->first('acreage', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -99,28 +104,39 @@
                                 <div class="minus-plus">
                                     <input type="number" required min="0" name="number_of_bedrooms" value="{{ old('number_of_bedrooms', $dataEdit->number_of_bedrooms ?? '') }}" class="form-control">
                                 </div>
+                                {!! $errors->first('number_of_bedrooms', '<span class="help-block error">:message</span>') !!}
                             </div>
                             <div class="col-md-6">
                                 <label>Số nhà vệ sinh <span class="required">*</span></label>
                                 <div class="minus-plus">
                                     <input type="number" required min="0" name="number_of_toilets" value="{{ old('number_of_toilets', $dataEdit->number_of_toilets ?? '') }}" class="form-control">
                                 </div>
+                                {!! $errors->first('number_of_toilets', '<span class="help-block error">:message</span>') !!}
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Căn hộ <span class="required">*</span></label>
+							<input type="text" name="building" class="form-control" required value="{{ old('building', $dataEdit->building ?? '') }}">
+                            {!! $errors->first('building', '<span class="help-block error">:message</span>') !!}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>Tầng <span class="required">*</span></label>
 							<input type="text" name="floor" class="form-control" required value="{{ old('floor', $dataEdit->floor ?? '') }}">
+                            {!! $errors->first('floor', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>Số hiệu căn hộ <span class="required">*</span></label>
 							<input type="text" name="apartment_number" class="form-control" required value="{{ old('apartment_number', $dataEdit->apartment_number ?? '') }}">
+                            {!! $errors->first('apartment_number', '<span class="help-block error">:message</span>') !!}
                         </div>
                     </div>
                 </div>
@@ -195,40 +211,31 @@
 
         <div class="box">
             <div class="box-body">
-                @php
-                    $directs = [
-                        EAST => 'Đông',
-                        WEST => 'Tây',
-                        SOUTH => 'Nam',
-                        NORTH => 'Bắc',
-                        SOUTHEAST => 'Đông Nam',
-                        NORTHEAST => 'Đông Bắc',
-                        SOUTHWEST => 'Tây Nam',
-                    ];
-                @endphp
                 <div class="form-group">
                     <label>Hướng cửa <span class="required">*</span></label>
                     <select name="door_direction" required class="form-control">
                         <option value=""></option>
-                        @foreach ($directs as $key => $item)
+                        @foreach (DIRECT as $key => $item)
                             <option 
                                 value="{{ $key }}"
                                 @if(isset($dataEdit->door_direction) && $dataEdit->door_direction == $key) selected @endif
                             >{{ $item }}</option>
                         @endforeach
                     </select>
+                    {!! $errors->first('door_direction', '<span class="help-block error">:message</span>') !!}
                 </div>
                 <div class="form-group">
                     <label>Hướng ban công <span class="required">*</span></label>
                     <select name="balcony_direction" required class="form-control">
                         <option value=""></option>
-                        @foreach ($directs as $key => $item)
+                        @foreach (DIRECT as $key => $item)
                             <option 
                                 value="{{ $key }}"
                                 @if(isset($dataEdit->balcony_direction) && $dataEdit->balcony_direction == $key) selected @endif
                             >{{ $item }}</option>
                         @endforeach
                     </select>
+                    {!! $errors->first('balcony_direction', '<span class="help-block error">:message</span>') !!}
                 </div>
             </div>
         </div>

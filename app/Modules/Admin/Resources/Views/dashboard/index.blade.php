@@ -1,5 +1,7 @@
 @extends('admin::layouts.master')
 
+@section('title') Trang chủ @endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">

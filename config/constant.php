@@ -79,4 +79,13 @@
     if (!defined('CANCEL')) {
         define('CANCEL', 'cancel');
     }
-?>
+
+    const DIRECT = [
+        EAST => 'Đông',
+        WEST => 'Tây',
+        SOUTH => 'Nam',
+        NORTH => 'Bắc',
+        SOUTHEAST => 'Đông Nam',
+        NORTHEAST => 'Đông Bắc',
+        SOUTHWEST => 'Tây Nam',
+    ];

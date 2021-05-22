@@ -139,6 +139,7 @@ class ProjectController extends Controller
             'description' => $params['description'],
             'door_direction' => $params['door_direction'],
             'balcony_direction' => $params['balcony_direction'],
+            'building' => $params['building'],
             'floor' => $params['floor'],
             'apartment_number' => $params['apartment_number'],
             'user_id' => auth()->user()->id,

@@ -17,11 +17,17 @@ class ProjectController extends AppController
     private $project;
 
     public function __construct(Project $project) {
+        parent::__construct();
         $this->project = $project;
     }
 
     public function index() {
-    	return view('web::project.index');
+        $projects = $this->project->paginate(PAGE_LIMIT);
+        
+        $viewData = [
+            'projects' => $projects
+        ];
+    	return view('web::project.index', $viewData);
     }
 
     public function news() {
@@ -62,6 +68,7 @@ class ProjectController extends AppController
             'description' => $params['description'],
             'door_direction' => $params['door_direction'],
             'balcony_direction' => $params['balcony_direction'],
+            'building' => $params['building'],
             'floor' => $params['floor'],
             'apartment_number' => $params['apartment_number'],
             'user_id' => auth()->user()->id,

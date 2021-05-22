@@ -116,11 +116,15 @@
 								<option value="{{ SOUTHWEST }}">Tây Nam</option>
 							</select>
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-12 pad5">
+							<p>Tòa nhà <span class="required">*</span></p>
+							<input type="text" name="building" required value="{{ old('building') }}" placeholder="Nhập tòa nhà">
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-12 pad5">
 							<p>Tầng <span class="required">*</span></p>
 							<input type="text" name="floor" required value="{{ old('floor') }}" placeholder="Nhập tầng">
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-12 pad5">
 							<p>Số hiệu căn hộ <span class="required">*</span></p>
 							<input type="text" name="apartment_number" required value="{{ old('apartment_number') }}" placeholder="Nhập số hiệu căn hộ">
 						</div>
