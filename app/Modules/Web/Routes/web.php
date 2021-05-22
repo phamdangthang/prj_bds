@@ -29,7 +29,7 @@ Route::get('/dang-nhap', function () {
 
 // du an
 Route::get('/danh-muc-du-an', 'ProjectController@index')->name('project-index');
-Route::get('/chi-tiet-du-an', 'ProjectController@detail')->name('project-detail');
+Route::get('/chi-tiet-du-an/{slug}-{id}', 'ProjectController@detail')->name('project-detail');
 
 // tin tuc
 Route::get('/danh-muc-tin-tuc', 'PostController@index')->name('news-index');

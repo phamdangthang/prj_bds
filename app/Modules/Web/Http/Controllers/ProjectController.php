@@ -100,7 +100,15 @@ class ProjectController extends AppController
         }
     }
 
-    public function detail() {
-    	return view('web::project.detail');
+    public function detail($slug, $id) {
+        $project = $this->project->where([
+            'id' => $id,
+            'name' => $slug
+        ])->first();
+        
+        $viewData = [
+            'project' => $project
+        ];
+    	return view('web::project.detail', $viewData);
     }
 }
