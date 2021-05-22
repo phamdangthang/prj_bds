@@ -20,7 +20,7 @@
                                 @foreach ($projects as $item)
                                     <option 
                                         value="{{ $item->id }}" 
-                                        @if($dataEdit->category_id === $item->id) selected @endif
+                                        @if(isset($dataEdit->category_id) && $dataEdit->category_id === $item->id) selected @endif
                                     >{{ $item->name }}</option>
                                 @endforeach
                             </select>
@@ -34,7 +34,7 @@
                                 @foreach ($cities as $item)
                                     <option 
                                         value="{{ $item->id }}"
-                                        @if($dataEdit->city_id === $item->id) selected @endif
+                                        @if(isset($dataEdit->city_id) && $dataEdit->city_id === $item->id) selected @endif
                                     >{{ $item->name }}</option>
                                 @endforeach
                             </select>
@@ -80,7 +80,7 @@
                                 @foreach ($statuses as $key => $status)
                                     <option 
                                         value="{{ NEW_TO_USE }}"
-                                        @if($dataEdit->usage_status == $key) selected @endif
+                                        @if(isset($dataEdit->usage_status) && $dataEdit->usage_status == $key) selected @endif
                                     >{{ $status }}</option>
                                 @endforeach
 							</select>
@@ -130,38 +130,31 @@
                     <textarea name="note" class="form-control" rows="3">{{ old('note', $dataEdit->note ?? '') }}</textarea>
                 </div>
 
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <p>Hình ảnh căn hộ <span class="required">*</span></p>
-                            <div class="list-img">
-                                @foreach ($images as $key => $img)
-                                    @if ($img)
+                            <div class="form-group product-avatar">
+                                <label class="mb-0">Hình ảnh căn hộ <span class="required">*</span></label>
+                                <div class="upload-list-img" id="uploadListImg">
+                                    @php
+                                        $images = old('images',  $projectImages ?? []);
+                                    @endphp
+                                    @foreach ($images as $item)
                                         <div class="item">
-                                            <i class="fe-x icon-remove"></i>
-                                            <label>
-                                                <div class="label-mask"></div>
-        
-                                                <i class="fe-image icon-plus cursor-pointer"></i>
-                                                <img src="{{ asset($img->url) }}" class="img-preview">
-                                                <input accept="image/*" type="file" class="change_input d-none" name="images[{{ $key }}]">
-                                                <input type="hidden" name="images[{{ $key }}]" value="{{ $img->url }}">
-                                            </label>
+                                            <img class="img-thumbnail" src="{{ $item }}">
+                                            <input type="hidden" name="images[]" value="{{ $item }}">
+                                            <span onclick="removeImgUpload(this)" class="remove-img">
+                                                <i class="fa fa-times-circle"></i><span></span>
+                                            </span>
                                         </div>
-                                    @else
-                                        <div class="item">
-                                            <i class="fe-x icon-remove d-none"></i>
-                                            <label>
-                                                <div class="label-mask"></div>
-        
-                                                <i class="fe-image icon-plus cursor-pointer"></i>
-                                                <img src="" class="img-preview d-none">
-                                                <input accept="image/*" type="file" class="change_input d-none" name="images[{{ $key }}]">
-                                            </label>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                    @endforeach
+                                </div>
                                 {!! $errors->first('images', '<span class="help-block error">:message</span>') !!}
+                                <div class="text-center">
+                                    <a href="javascript:void(0)" class="btn-add-images" onclick="initMediaDiv('uploadListImg')">
+                                        <b>{{ __('Chọn ảnh') }}</b>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,7 +185,7 @@
                         @foreach ($projectStatus as $key => $item)
                             <option 
                                 value="{{ $key }}"
-                                @if($key == $dataEdit->status) selected @endif
+                                @if(isset($dataEdit->status) && $key == $dataEdit->status) selected @endif
                             >{{ $item['text'] }}</option>
                         @endforeach
                     </select>
@@ -219,8 +212,8 @@
                         <option value=""></option>
                         @foreach ($directs as $key => $item)
                             <option 
-                                value="{{ NEW_TO_USE }}"
-                                @if($dataEdit->door_direction == $key) selected @endif
+                                value="{{ $key }}"
+                                @if(isset($dataEdit->door_direction) && $dataEdit->door_direction == $key) selected @endif
                             >{{ $item }}</option>
                         @endforeach
                     </select>
@@ -231,8 +224,8 @@
                         <option value=""></option>
                         @foreach ($directs as $key => $item)
                             <option 
-                                value="{{ NEW_TO_USE }}"
-                                @if($dataEdit->balcony_direction == $key) selected @endif
+                                value="{{ $key }}"
+                                @if(isset($dataEdit->balcony_direction) && $dataEdit->balcony_direction == $key) selected @endif
                             >{{ $item }}</option>
                         @endforeach
                     </select>
@@ -248,15 +241,15 @@
                     </div>
                     <div class="col-md-12">
                         <label>Tên <span class="required">*</span></label>
-                        <input type="text" class="form-control" required value="{{ auth()->user()->name ?? null }}" readonly>
+                        <input type="text" class="form-control" required value="{{ $customer->name ?? null }}" readonly>
                     </div>
                     <div class="col-md-12">
                         <label>Email <span class="required">*</span></label>
-                        <input type="text" class="form-control" required value="{{ auth()->user()->email ?? null }}" readonly>
+                        <input type="text" class="form-control" required value="{{ $customer->email ?? null }}" readonly>
                     </div>
                     <div class="col-md-12">
                         <label>Số điện thoại <span class="required">*</span></label>
-                        <input type="text" class="form-control" value="{{ auth()->user()->phone ?? null }}" readonly>
+                        <input type="text" class="form-control" value="{{ $customer->phone ?? null }}" readonly>
                     </div>
                 </div>
             </div>
@@ -264,19 +257,4 @@
     </div>
 </div>
 
-@section('script')
-    <script>
-        $(".form-category").validate({
-            rules: {
-                name: "required",
-                slug: "required",
-                type: "required",
-            },
-            messages: {
-                name: {required: "Trường này không được để trống"},
-                slug: {required: "Trường này không được để trống"},
-                type: {required: "Trường này không được để trống"},
-            }
-        });
-    </script>
-@endsection
+@include('commons.media')

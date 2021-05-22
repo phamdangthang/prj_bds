@@ -58,7 +58,7 @@
                                                 <td>
                                                     <div class="logo-project">
                                                         @if (count($images) > 0)
-                                                            <img src="{{ asset($images[0]->url) }}" alt="">
+                                                            <img src="{{ asset($images[0]) }}" alt="">
                                                         @endif
                                                     </div>
                                                 </td>

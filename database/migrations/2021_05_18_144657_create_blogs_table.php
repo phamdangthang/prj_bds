@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('content');
+            $table->text('content');
             $table->string('status')->nullable();
             $table->timestamp('created_at')->nullable(false)->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable(false)->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));

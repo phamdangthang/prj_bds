@@ -78,10 +78,7 @@ class ProjectController extends AppController
                         File::makeDirectory(public_path($folderName), 0777, true);
                     }
                     $file->move(public_path($folderName), $fileName);
-                    $dataImages[] = [
-                        'index' => $key,
-                        'url' => $folderName.'/'.$fileName
-                    ];
+                    $dataImages[] = [$folderName.'/'.$fileName];
                 }
                 $dataInsert = array_merge($dataInsert, [
                     'images' => json_encode($dataImages)
