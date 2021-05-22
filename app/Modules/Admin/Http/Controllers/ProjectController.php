@@ -144,7 +144,8 @@ class ProjectController extends Controller
             'apartment_number' => $params['apartment_number'],
             'user_id' => auth()->user()->id,
             'note' => $params['note'],
-            'images' => json_encode($params['images'])
+            'images' => json_encode($params['images']),
+            'is_hot' => $params['is_hot']
         ];
 
         return $dataSave;

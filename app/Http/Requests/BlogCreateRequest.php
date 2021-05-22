@@ -27,6 +27,7 @@ class BlogCreateRequest extends FormRequest
             'name' => 'required',
             'slug' => 'required',
             'content' => 'required',
+            'logo' => 'required',
         ];
     }
 
@@ -35,6 +36,7 @@ class BlogCreateRequest extends FormRequest
             'name.required' => 'Trường này không được để trống',
             'slug.required' => 'Trường này không được để trống',
             'content.required' => 'Trường này không được để trống',
+            'logo.required' => 'Trường này không được để trống',
         ];
     }
 }

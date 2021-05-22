@@ -32,6 +32,7 @@ class Project extends Model
         'note',
         'date_of_delivery',
         'images',
+        'is_hot',
     ];
     
     public function user() {

@@ -4,7 +4,7 @@ namespace App\Modules\Web\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
-use App\Models\Post;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\City;
 use DB;
@@ -17,13 +17,21 @@ class PostController extends AppController
 {
     private $post;
 
-    public function __construct(Post $post) {
+    public function __construct(Blog $post) {
         parent::__construct();
         $this->post = $post;
     }
 
     public function index() {
-        return view('web::post.index');
+        $categories = Category::orderBy('id', 'desc')
+            ->paginate(PAGE_LIMIT);
+        $posts = $this->post->paginate(PAGE_LIMIT);
+
+        $viewData = [
+            'categories' => $categories,
+            'posts' => $posts,
+        ];
+        return view('web::post.index', $viewData);
     }
 
     public function news() {
@@ -99,7 +107,22 @@ class PostController extends AppController
         }
     }
 
-    public function detail() {
-        return view('web::post.detail');
+    public function detail($slug, $id) {
+        $post = $this->post->where([
+            'slug' => $slug,
+            'id' => $id
+        ])->first();
+        if (!$post) {
+            abort(404);
+        }
+        $categories = Category::orderBy('id', 'desc')->limit(10)->get();
+        $newPost = $this->post->orderBy('id', 'desc')->limit(10)->get();
+
+        $viewData = [
+            'categories' => $categories,
+            'post' => $post,
+            'newPost' => $newPost,
+        ];
+        return view('web::post.detail', $viewData);
     }
 }

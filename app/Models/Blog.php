@@ -14,6 +14,7 @@ class Blog extends Model
         'content',
         'status',
         'admin_id',
+        'logo',
     ];
 
     public function admin() {

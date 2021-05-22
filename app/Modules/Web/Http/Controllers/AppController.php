@@ -13,6 +13,9 @@ class AppController extends Controller
     public function __construct() {
         $groupCity = $this->getCity();
         View::share('groupCity', $groupCity);
+
+        $projectHot = Project::where('is_hot', 1)->limit(10)->get();
+        View::share('projectHot', $projectHot);
     }
 
     public function getCity() {

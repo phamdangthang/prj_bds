@@ -103,7 +103,7 @@ class ProjectController extends AppController
     public function detail($slug, $id) {
         $project = $this->project->where([
             'id' => $id,
-            'name' => $slug
+            'slug' => $slug
         ])->first();
         
         $viewData = [

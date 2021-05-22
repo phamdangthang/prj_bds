@@ -40,7 +40,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Ảnh dự án</th>
+                                            <th style="min-width: 110px">Ảnh dự án</th>
                                             <th>Tiêu dự án</th>
                                             <th>Thành phố</th>
                                             <th>Giá bán</th>

@@ -53,6 +53,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th style="min-width: 110px">Ảnh đại diện</th>
                                             <th>Tiêu đề</th>
                                             <th>Slug</th>
                                             <th>Người đăng</th>
@@ -64,6 +65,13 @@
                                         @foreach ($result as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
+                                                <td>
+                                                    <div class="logo-project">
+                                                        @if ($item->logo)
+                                                            <img src="{{ asset($item->logo) }}" alt="">
+                                                        @endif
+                                                    </div>
+                                                </td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->slug }}</td>
                                                 <td>{{ $item->admin->name }}</td>

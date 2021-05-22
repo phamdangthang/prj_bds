@@ -9,7 +9,7 @@
     
     <div class="text-center {{ ($avatarCheck) ? 'hidden' : '' }} get-media">
         <a 
-            class="{{ $chooseClass ?? null }}"
+            class="{{ $chooseClass ?? null }} btn-add-images"
             href="javascript:void(0)"
             onclick="initMediaAvatar('{{ $avatarKey }}')"
         >{!! (isset($chooseText)) ? $chooseText : __('Chọn ảnh') !!}</a>

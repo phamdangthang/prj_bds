@@ -11,7 +11,7 @@
 			</div>
 			<div class="col-lg-6 menu">
 				<ul>
-					<li><a href="">TRANG CHỦ</a></li>
+					<li><a href="{{ route('home') }}">TRANG CHỦ</a></li>
 					<li><a href="">MUA BÁN</a>
 						<ul>
 							<li><a href="">Bán căn hộ chung cư</a></li>
@@ -24,8 +24,8 @@
 							<li><a href="">Bán loại bất động sản khác</a></li>
 						</ul>
 					</li>
-					<li><a href="">DỰ ÁN</a>
-						<ul>
+					<li><a href="{{ route('project-index') }}">DỰ ÁN</a>
+						{{-- <ul>
 							<li><a href="">Bán căn hộ chung cư</a></li>
 							<li><a href="">Bán nhà riêng</a></li>
 							<li><a href="">Bán nhà biệt thự liền kề</a></li>
@@ -34,9 +34,9 @@
 							<li><a href="">Bán trang trại, khu nghỉ dưỡng</a></li>
 							<li><a href="">Bán kho nhà xưởng</a></li>
 							<li><a href="">Bán loại bất động sản khác</a></li>
-						</ul>
+						</ul> --}}
 					</li>
-					<li><a href="">TIN TỨC</a></li>
+					<li><a href="{{ route('news-index') }}">TIN TỨC</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-auto header-right">
@@ -64,11 +64,6 @@
 							<img src="{{ asset('images/icon1.png') }}" alt="">
 						</a>
 					@endif
-					
-				</div>
-				<div class="language">
-					<a href=""><img src="{{ asset('images/vn.jpg') }}" alt=""></a>
-					<a href=""><img src="{{ asset('images/usa.jpg') }}" alt=""></a>
 				</div>
 			</div>
 		</div>

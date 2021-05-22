@@ -2,7 +2,7 @@
     <div class="row row5">
         @php
             $images = json_decode($item->images);
-            $href=route('project-detail', ['slug' => $item->name, 'id' => $item->id]);
+            $href=route('project-detail', ['slug' => $item->slug, 'id' => $item->id]);
         @endphp
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 pad5">
             @if (count($images) > 0)

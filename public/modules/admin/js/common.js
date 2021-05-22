@@ -171,11 +171,11 @@ $('.btn-random-discount-code').on('click', function () {
     })
 });
 
-$('.title-input').on('blur', function () {
-    let str = $(this).val()
-    str = str.replace(/([^0-9a-zA-Z-\s])/g, '');
-    $(this).val(str)
-});
+// $('.title-input').on('blur', function () {
+//     let str = $(this).val()
+//     str = str.replace(/([^0-9a-zA-Z-\s])/g, '');
+//     $(this).val(str)
+// });
 
 $('.sku-input').on('blur', function () {
     let str = $(this).val()

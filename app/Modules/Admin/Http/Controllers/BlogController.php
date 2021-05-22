@@ -38,13 +38,14 @@ class BlogController extends Controller
     }
 
     public function store(BlogCreateRequest $request) {
-        $data = $request->all();
+        $params = $request->all();
         $insert = [
-            'name' => $data['name'],
-            'slug' => $data['slug'],
-            'content' => $data['content'],
+            'name' => $params['name'],
+            'slug' => $params['slug'],
+            'content' => $params['content'],
             'admin_id' => auth()->guard('admin')->user()->id,
-            // 'status' => $data['status'],
+            'logo' => $params['logo'],
+            // 'status' => $params['status'],
         ];
         $created = $this->blog->insert($insert);
         if ($created) {

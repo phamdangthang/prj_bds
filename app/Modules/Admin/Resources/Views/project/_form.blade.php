@@ -206,6 +206,19 @@
                         @endforeach
                     </select>
                 </div>
+                
+                <div class="form-group">
+                    <label for="is_hot">Dự án hot</label> <br/>
+                    <label class="switch switch-small">
+                        <input 
+                            type="checkbox" 
+                            name="is_hot"
+                            value="1"
+                            {{ isset($dataEdit->is_hot) && $dataEdit->is_hot ? 'checked' : '' }}
+                        >
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
 

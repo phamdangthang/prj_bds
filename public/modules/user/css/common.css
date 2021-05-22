@@ -315,3 +315,10 @@ input[readonly] {
     text-overflow: ellipsis;
     max-height: 100px;
 }
+
+.text-eclipse {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
