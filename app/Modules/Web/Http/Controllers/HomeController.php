@@ -16,7 +16,7 @@ class HomeController extends AppController
     
     public function index()
     {
-        $projects = Project::paginate(PAGE_LIMIT);
+        $projects = Project::where('status', 'approved')->orderBy('created_at', 'desc')->paginate(15);
 
         $viewData = [
             'projects' => $projects

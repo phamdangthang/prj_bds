@@ -26,6 +26,24 @@
 						<span>Dự án</span>
 					</a>
 				</li>
+				<li class="{{ request()->segment(2) === 'contract' ? 'active' : '' }}">
+					<a href="{{ route('admin.contract.index') }}">
+						<i class="fe-package"></i>
+						<span>Hợp đồng</span>
+					</a>
+				</li>
+				<li class="{{ request()->segment(2) === 'transaction' ? 'active' : '' }}">
+					<a href="{{ route('admin.transaction.index') }}">
+						<i class="fe-package"></i>
+						<span>Giao dịch</span>
+					</a>
+				</li>
+				<li class="{{ request()->segment(2) === 'statistic' ? 'active' : '' }}">
+					<a href="{{ route('admin.statistic.index') }}">
+						<i class="fe-package"></i>
+						<span>Thống kê</span>
+					</a>
+				</li>
                 <li class="{{ request()->segment(2) === 'blog' ? 'active' : '' }}">
 					<a href="{{ route('admin.blog.index') }}">
 						<i class="fa fa-newspaper"></i>

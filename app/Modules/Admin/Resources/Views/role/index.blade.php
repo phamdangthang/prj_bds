@@ -70,7 +70,7 @@
                                         $listPermission = $role->permissions()->pluck('name')
                                     @endphp
                                     <td>
-                                        @if ($role->name === 'admin')
+                                        @if ($role->name === 'admin' || $role->name === 'super_admin')
                                             <span class="badge text-white" style="background: #7f29ab;">all permission</span>
                                         @else
                                             @foreach ($listPermission as $value)
@@ -83,7 +83,7 @@
                                         <a href="{{ route('admin.role.edit', $role->id) }}" class="btn btn-warning pull-left" style="margin-right: 3px;">
                                             <span>Sửa</span>
                                         </a>
-                                        @if (!($role->name == 'admin'))
+                                        @if (!($role->name == 'admin' || $role->name === 'super_admin'))
                                             <a href="{{ route('admin.role.destroy', $role->id) }}">
                                                 <button class="btn btn-danger">
                                                     <span>Xóa</span>

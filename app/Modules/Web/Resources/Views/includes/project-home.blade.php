@@ -1,13 +1,13 @@
-<div class="new new-hot">
+<div class="new {{ $item->is_hot == 1 ? 'new-hot' : ''}}">
     <div class="row">
         @php
             $images = json_decode($item->images);
         @endphp
         <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <a href="" class="c-img hv-light"><img src="{{ $images['0'] }}" alt=""></a>
+            <a href="{{ route('project-detail', ['slug' => $item->slug, 'id' => $item->id]) }}" class="c-img hv-light"><img src="{{ $images['0'] }}" alt=""></a>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-8 info-new">
-            <h4><a href="">{{ $item->name }}</a></h4>
+            <h4><a href="{{ route('project-detail', ['slug' => $item->slug, 'id' => $item->id]) }}">{{ $item->name }}</a></h4>
             <span class="date-submitted">Ngày đăng : <span>{{ date('d/m/Y', strtotime($item->created_at)) }}</span></span>
             <span class="price">Giá: <span>{{ number_format($item->price) }} VND</span></span>
             <span class="badroom">Phòng ngủ : <span>{{ $item->number_of_bedrooms }}</span></span>

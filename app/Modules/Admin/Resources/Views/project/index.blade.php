@@ -40,7 +40,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th style="min-width: 110px">Ảnh dự án</th>
+                                            {{-- <th style="min-width: 110px">Ảnh dự án</th> --}}
                                             <th>Tiêu dự án</th>
                                             <th>Thành phố</th>
                                             <th>Giá bán</th>
@@ -57,17 +57,18 @@
                                             @endphp
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     <div class="logo-project">
                                                         @if (count($images) > 0)
                                                             <img src="{{ asset($images[0]) }}" alt="">
                                                         @endif
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                                 <td style="max-width: 350px">{{ $item->name }}</td>
                                                 <td>{{ $item->city->name }}</td>
-                                                <td>{{ $item->price }}</td>
-                                                <td>{{ $item->user->name }}</td>
+                                                <td>{{ number_format($item->price) }}</td>
+                                                {{-- <td>{{ $item->user->name }}</td> --}}
+                                                <td>{{ $item->user->name ?? null }}</td>
                                                 <td style="min-width: 110px">
                                                     @foreach ($projectStatus as $key => $status)
                                                         @if ($item->status === $key)
@@ -77,7 +78,13 @@
                                                 </td>
                                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.project.edit', $item->id) }}" class="btn btn-warning text-white">Sửa</a>
+                                                    @if ($item->status == 'pending')
+                                                        <a href="{{ route('admin.project.approved', $item->id) }}" class="btn btn-success text-white">Duyệt</a>
+                                                        <a href="{{ route('admin.project.edit', $item->id) }}" class="btn btn-warning text-white">Sửa</a>
+                                                    @endif
+                                                    @if ($item->status == 'pending' || $item->status == 'approved')
+                                                        <a href="{{ route('admin.project.cancel', $item->id) }}" class="btn btn-danger text-white">Hủy</a>
+                                                    @endif
                                                     <a href="{{ route('admin.project.delete', $item->id) }}" class="btn btn-danger text-white">Xóa</a>
                                                 </td>
                                             </tr>

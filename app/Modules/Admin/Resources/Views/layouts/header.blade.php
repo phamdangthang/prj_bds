@@ -6,7 +6,7 @@
                     
                 </form>
                 <div class="header-button">
-                    <div class="noti-wrap">
+                    {{-- <div class="noti-wrap">
                         <div class="noti__item js-item-menu">
                             <i class="zmdi zmdi-comment-more"></i>
                             <span class="quantity">1</span>
@@ -29,22 +29,22 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
-                            <div class="image">
+                            {{-- <div class="image">
                                 <img src="{{ asset('modules/admin/images/icon/avatar-01.jpg') }}" alt="" />
-                            </div>
+                            </div> --}}
                             <div class="content">
                                 <a class="js-acc-btn" href="#">{{ auth()->guard('admin')->user()->name }}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
-                                    <div class="image">
+                                    {{-- <div class="image">
                                         <a href="#">
                                             <img src="{{ asset('modules/admin/images/icon/avatar-01.jpg') }}" alt="John Doe" />
                                         </a>
-                                    </div>
+                                    </div> --}}
                                     <div class="content">
                                         <h5 class="name">
                                             <a href="javascript:void(0)">{{ auth()->guard('admin')->user()->name }}</a>

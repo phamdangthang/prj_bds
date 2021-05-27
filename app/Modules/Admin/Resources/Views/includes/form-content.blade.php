@@ -12,7 +12,7 @@
         rows="20"
     >{{ old($inputName,  $dataEdit->$inputName ?? null) }}
     </textarea>
-    {!! $errors->first('{{ $inputName }}', '<span class="help-block error">:message</span>') !!}
+    {!! $errors->first($inputName, '<span class="help-block error">:message</span>') !!}
 </div>
 
 <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>

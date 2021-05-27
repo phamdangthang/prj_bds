@@ -6,42 +6,14 @@
 			<div class="col-lg-9 col-md-12 col-sm-12 col-12">
 				<div class="cate">
 					<h1 class="title-cate">DỰ ÁN MỚI NHẤT</h1>
-					<form action="#">
-						<span>SẮP XẾP THEO</span>
-						<select name="" id="">
-							<option value="">Dự án mới nhất</option>
-							<option value="">Dự án mới nhất</option>
-							<option value="">Dự án mới nhất</option>
-						</select>
-					</form>
 				</div>
 
-				@for ($i = 0; $i < 3; $i++)
-					@foreach ($projects as $item)
-						@include('web::includes.project-home', ['item' => $item])
-					@endforeach
-				@endfor
-				
-				<a href="" class="see-more">XEM THÊM<i class="fa fa-caret-down" aria-hidden="true"></i></a>
-
-				<a href="" class="qc">
+				<a href="" class="qc mt-3">
 					<img src="{{ asset('images/qc1.jpg') }}" alt="">
 				</a>
-				
-				@for ($i = 0; $i < 3; $i++)
-					@foreach ($projects as $item)
-						@include('web::includes.project-home', ['item' => $item])
-					@endforeach
-				@endfor
-
-				{{-- <div class="pagi">
-					<strong>1</strong>
-					<a href="">2</a>
-					<a href="">3</a>
-					<a href="">4</a>
-					<a href="">5</a>
-					<a href=""><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				</div> --}}
+				@foreach ($projects as $item)
+					@include('web::includes.project-home', ['item' => $item])
+				@endforeach
 
 				{{ $projects->appends(['search' => $search ?? []])->links() }}
 			</div>

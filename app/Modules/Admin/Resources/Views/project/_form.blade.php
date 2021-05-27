@@ -194,19 +194,20 @@
 
         <div class="box">
             <div class="box-body">
-                <div class="form-group">
-                    <label>Trạng thái</label>
-                    <select name="status" class="form-control">
-                        <option value=""></option>
-                        @foreach ($projectStatus as $key => $item)
-                            <option 
-                                value="{{ $key }}"
-                                @if(isset($dataEdit->status) && $key == $dataEdit->status) selected @endif
-                            >{{ $item['text'] }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                
+                @if ($routeType === 'edit')
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select name="status" class="form-control">
+                            <option value=""></option>
+                            @foreach ($projectStatus as $key => $item)
+                                <option 
+                                    value="{{ $key }}"
+                                    @if(isset($dataEdit->status) && $key == $dataEdit->status) selected @endif
+                                >{{ $item['text'] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="is_hot">Dự án hot</label> <br/>
                     <label class="switch switch-small">
