@@ -38,4 +38,5 @@ Route::get('/chi-tiet-tin-tuc/{slug}/{id}', 'PostController@detail')->name('news
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dang-tin', 'ProjectController@news')->name('project-news');
     Route::post('/dang-tin', 'ProjectController@postNews')->name('project-news.store');
+    Route::get('/dat-mua/{id}', 'ProjectController@order')->name('project-news.order');
 });

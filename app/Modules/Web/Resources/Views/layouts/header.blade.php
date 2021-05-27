@@ -1,18 +1,20 @@
 <div class="slider-banner">
-	<a href="" class="c-img"><img src="{{ asset('images/banner-1.jpg') }}" alt=""></a>
-	<a href="" class="c-img"><img src="{{ asset('images/banner-2.jpg') }}" alt=""></a>
+	<a href="void:javascript(0)" class="c-img"><img src="{{ asset('images/slide1.jpg') }}" alt=""></a>
+	<a href="void:javascript(0)" class="c-img"><img src="{{ asset('images/slide2.jpg') }}" alt=""></a>
+	<a href="void:javascript(0)" class="c-img"><img src="{{ asset('images/slide3.jpg') }}" alt=""></a>
+	<a href="void:javascript(0)" class="c-img"><img src="{{ asset('images/slide4.jpg') }}" alt=""></a>
 </div>
 
 <header class="header">
 	<div class="container">
 		<div class="row align-items-center justify-content-lg-center">
 			<div class="col-lg-2">
-				<a href=""><img src="{{ asset('images/logo.png') }}" alt=""></a>
+				<a href=""><img src="{{ asset('images/logo_bds.jpg') }}" alt=""></a>
 			</div>
 			<div class="col-lg-6 menu">
 				<ul>
 					<li><a href="{{ route('home') }}">TRANG CHỦ</a></li>
-					<li><a href="">MUA BÁN</a>
+					{{-- <li><a href="">MUA BÁN</a>
 						<ul>
 							<li><a href="">Bán căn hộ chung cư</a></li>
 							<li><a href="">Bán nhà riêng</a></li>
@@ -23,7 +25,7 @@
 							<li><a href="">Bán kho nhà xưởng</a></li>
 							<li><a href="">Bán loại bất động sản khác</a></li>
 						</ul>
-					</li>
+					</li> --}}
 					<li><a href="{{ route('project-index') }}">DỰ ÁN</a>
 						{{-- <ul>
 							<li><a href="">Bán căn hộ chung cư</a></li>
@@ -40,7 +42,6 @@
 				</ul>
 			</div>
 			<div class="col-lg-auto header-right">
-
 				@if (auth()->user())
 					<a href="{{ route('project-news') }}" class="post-news">
 						<img src="{{ asset('images/dangtin2.png') }}" alt="">

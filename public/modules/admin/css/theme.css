@@ -1408,7 +1408,7 @@ section {
 }
 
 .account-item > .content {
-    margin-left: 45px;
+    /*margin-left: 45px;*/
     padding: 9px 0;
     padding-left: 12px;
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\ProjectCreateRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\City;
 use Str;
@@ -83,7 +84,7 @@ class ProjectController extends Controller
 
     public function store(ProjectCreateRequest $request) {
         $params = $request->all();
-        $dataSave = $this->getDataSave($params);
+        $dataSave = $this->getDataSave($params, 'create');
         
         $created = $this->project->insert($dataSave);
         if ($created) {
@@ -105,7 +106,7 @@ class ProjectController extends Controller
             'projects' => $projects,
             'projectImages' => $projectImages,
             'projectStatus' => $projectStatus,
-            'customer' => User::findOrFail($dataEdit->user_id)
+            'customer' => User::find($dataEdit->user_id) ?? Admin::find($dataEdit->admin_id)
         ];
         return view('admin::project.edit', $viewData);
     }
@@ -113,7 +114,7 @@ class ProjectController extends Controller
     public function update(ProjectUpdateRequest $request, $id) {
         $params = $request->all();
         $project = $this->project->find($id);
-        $dataSave = $this->getDataSave($params);
+        $dataSave = $this->getDataSave($params, 'update');
 
         $updated = $project->update($dataSave);
         if ($updated) {
@@ -122,7 +123,12 @@ class ProjectController extends Controller
         return redirect()->back()->with('alert-danger', 'Cập nhật dự án thất bại');
     }
 
-    public function getDataSave($params) {
+    public function getDataSave($params, $type) {
+        if ($type === 'create') {
+            $status = 'pending';
+        } else {
+            $status = $params['status'];
+        }
         $dataSave = [
             'category_id' => $params['category_id'],
             'city_id' => $params['city_id'],
@@ -130,7 +136,7 @@ class ProjectController extends Controller
             'price' => $params['price'],
             'guide' => $params['guide'],
             'usage_status' => $params['usage_status'],
-            'status' => $params['status'],
+            'status' => $status,
             'acreage' => $params['acreage'],
             'number_of_bedrooms' => $params['number_of_bedrooms'],
             'number_of_toilets' => $params['number_of_toilets'],
@@ -142,7 +148,7 @@ class ProjectController extends Controller
             'building' => $params['building'],
             'floor' => $params['floor'],
             'apartment_number' => $params['apartment_number'],
-            'user_id' => auth()->user()->id,
+            'admin_id' => auth()->guard('admin')->user()->id,
             'note' => $params['note'],
             'images' => json_encode($params['images']),
             'is_hot' => $params['is_hot']
@@ -158,6 +164,32 @@ class ProjectController extends Controller
             return redirect()->back()->with('alert-success', 'Xóa dự án thành công');
         } else {
             return redirect()->back()->with('alert-error', 'Xóa dự án thất bại');
+        }
+    }
+
+    public function approved($id)
+    {
+        $approved = $this->project->findOrFail($id)->update([
+            'status' => 'approved'
+        ]);
+
+        if ($approved) {
+            return redirect()->back()->with('alert-success', 'Duyệt dự án thành công');
+        } else {
+            return redirect()->back()->with('alert-error', 'Duyệt dự án thất bại');
+        }
+    }
+
+    public function cancel($id)
+    {
+        $cancel = $this->project->findOrFail($id)->update([
+            'status' => 'cancel'
+        ]);
+
+        if ($cancel) {
+            return redirect()->back()->with('alert-success', 'Hủy dự án thành công');
+        } else {
+            return redirect()->back()->with('alert-error', 'Hủy dự án thất bại');
         }
     }
 }

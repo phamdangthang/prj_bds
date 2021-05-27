@@ -32,8 +32,8 @@ class CreateProjectsTable extends Migration
             $table->string('balcony_direction')->comment('hướng ban công');
             $table->string('floor')->comment('số tầng');
             $table->string('apartment_number')->comment('số căn hộ');
-            $table->string('user_id');
-            $table->string('admin_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->integer('admin_id')->nullable();
             $table->text('note')->nullable();
             $table->date('date_of_delivery')->nullable();
             $table->string('images')->nullable();

@@ -7,6 +7,8 @@ use App\Http\Requests\ProjectWebRequest;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Contract;
+use App\Models\Transaction;
 use DB;
 use Str;
 use File;
@@ -110,5 +112,49 @@ class ProjectController extends AppController
             'project' => $project
         ];
     	return view('web::project.detail', $viewData);
+    }
+
+    public function order($id)
+    {
+        DB::beginTransaction();
+        try {
+            $project = $this->project->findOrFail($id);
+
+            $contract = Contract::create([
+                'code' => 'HD',
+                'project_id' => $id,
+                'user_id' => auth()->id(),
+                'status' => 1,
+                'total_money' => $project->price,
+            ]);
+
+            $transaction = Transaction::create([
+                'code' => 'GD',
+                'contract_id' => $contract->id,
+                'admin_id' => $project->admin_id,
+                'name' => 'Ký Thỏa thuận đặt cọc "TTĐC"',
+                'description' => '5% giá bán cắn hộ',
+                'percent' => 5,
+                'duration' => date('Y-m-d'),
+                'total_money' => $contract->total_money * 5 / 100,
+                'status' => 0,
+            ]);
+
+            $transaction->update([
+                'code' => 'GD'.$transaction->id
+            ]);
+
+            $contract->update([
+                'code' => 'HD'.$contract->id,
+            ]);
+
+
+            DB::commit();
+            return redirect('/')->with('alert-success', 'Đặt mua dự án thành công!');
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception($e->getMessage());
+            return redirect()->back()->with('alert-error', 'Đặt mua dự án thất bại!');
+        }
     }
 }

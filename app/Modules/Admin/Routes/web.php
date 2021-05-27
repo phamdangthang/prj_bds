@@ -46,6 +46,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::post('/update/{id}', 'ProjectController@update')->name('project.update');
 
             Route::get('/delete/{id}', 'ProjectController@delete')->name('project.delete');
+            
+            Route::get('/approved/{id}', 'ProjectController@approved')->name('project.approved');
+            Route::get('/cancel/{id}', 'ProjectController@cancel')->name('project.cancel');
         });
 
         // Tin tức
@@ -96,6 +99,29 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/destroy/{id}', 'PermissionController@destroy')->name('permission.destroy');
 
             Route::get('/getAll', 'PermissionController@getAllRole')->name('permission.getAll');
+        });
+
+        // Hợp đồng
+        Route::group(['prefix' => 'contract'], function(){
+            Route::get('/', 'ContractController@index')->name('contract.index');
+            Route::get('/contract-detail/{id}', 'ContractController@show')->name('contract.contract-detail');
+            Route::get('/cancel/{id}', 'ContractController@cancel')->name('contract.cancel');
+        });
+
+        // Giao dịch
+        Route::group(['prefix' => 'transaction'], function(){
+            Route::get('/', 'TransactionController@index')->name('transaction.index');
+            Route::post('/confirm/{id}', 'TransactionController@confirm')->name('transaction.confirm');
+            Route::get('/create/{id}', 'TransactionController@create')->name('transaction.create');
+            Route::get('/edit/{id}', 'TransactionController@edit')->name('transaction.edit');
+            Route::post('/update/{id}', 'TransactionController@update')->name('transaction.update');
+            Route::post('/store/{id}', 'TransactionController@store')->name('transaction.store');
+            Route::delete('/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
+        });
+
+        // Thống kê
+        Route::group(['prefix' => 'statistic'], function(){
+            Route::get('/', 'StatisticController@index')->name('statistic.index');
         });
     });
 });
