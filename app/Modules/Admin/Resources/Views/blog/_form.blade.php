@@ -6,6 +6,22 @@
                 <div class="card-box">
                     @include('admin::includes.form-title')
         
+                    <div class="form-group">
+                        <label for="title">
+                            Danh mục
+                            <span class="required">*</span>
+                        </label>
+                        <select name="category_id" class="form-control" required>
+                            <option value=""></option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    @if(isset($dataEdit->category_id) && $dataEdit->category_id === $category->id) selected @endif
+                                >{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('category_id', '<span class="help-block error">:message</span>') !!}
+                    </div>
+
                     @include('admin::includes.form-content')
                 </div>
             </div>
@@ -54,10 +70,12 @@
             rules: {
                 name: "required",
                 slug: "required",
+                category_id: "required",
             },
             messages: {
                 name: {required: "Trường này không được để trống"},
                 slug: {required: "Trường này không được để trống"},
+                category_id: {required: "Trường này không được để trống"},
             }
         });
     </script>

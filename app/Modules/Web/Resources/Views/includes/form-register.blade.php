@@ -1,4 +1,4 @@
-<div class="register">
+{{-- <div class="register">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 qc4">
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

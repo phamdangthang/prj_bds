@@ -76,7 +76,7 @@
 									<p>Số nhà vệ sinh <span class="required">*</span></p>
 									<div class="minus-plus">
 										<span class="minus-wc" aria-hidden="true">-</span>
-										<input type="number" required name="inputnumber-wc" value="0" class="inputnumber-wc">
+										<input type="number" required name="number_of_toilets" value="0" class="inputnumber-wc">
 										<span class="plus-wc" aria-hidden="true">+</span>
 									</div>
 								</div>

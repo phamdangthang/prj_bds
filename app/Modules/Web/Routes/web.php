@@ -28,11 +28,11 @@ Route::get('/dang-nhap', function () {
 });
 
 // du an
-Route::get('/danh-muc-du-an', 'ProjectController@index')->name('project-index');
+Route::get('danh-muc-du-an/{slug}/{id}', 'ProjectController@projectCategory')->name('project-of-category');
 Route::get('/chi-tiet-du-an/{slug}/{id}', 'ProjectController@detail')->name('project-detail');
 
 // tin tuc
-Route::get('/danh-muc-tin-tuc', 'PostController@index')->name('news-index');
+Route::get('/danh-muc-tin-tuc/{slug}/{id}', 'PostController@newsCategory')->name('news-of-category');
 Route::get('/chi-tiet-tin-tuc/{slug}/{id}', 'PostController@detail')->name('news-detail');
 
 Route::group(['middleware' => 'auth'], function () {

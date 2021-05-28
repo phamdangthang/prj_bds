@@ -23,15 +23,6 @@ class ProjectController extends AppController
         $this->project = $project;
     }
 
-    public function index() {
-        $projects = $this->project->paginate(PAGE_LIMIT);
-        
-        $viewData = [
-            'projects' => $projects
-        ];
-    	return view('web::project.index', $viewData);
-    }
-
     public function news() {
         $images = [];
         for ($i = 1; $i <= 10; $i++) {
@@ -64,7 +55,7 @@ class ProjectController extends AppController
             'status' => PENDING,
             'acreage' => $params['acreage'],
             'number_of_bedrooms' => $params['number_of_bedrooms'],
-            'number_of_toilets' => $params['number_of_toilets'],
+            'number_of_toilets' => $params['number_of_toilets'] ?? $params['inputnumber-wc'],
             'name' => $params['name'],
             'slug' => Str::slug($params['name']),
             'description' => $params['description'],
@@ -156,5 +147,16 @@ class ProjectController extends AppController
             throw new Exception($e->getMessage());
             return redirect()->back()->with('alert-error', 'Đặt mua dự án thất bại!');
         }
+    }
+
+    public function projectCategory($slug, $id) {
+        $category = Category::findOrFail($id);
+        $projects = Project::where('category_id', $id)->where('status', 'approved')->paginate(PAGE_LIMIT);
+
+         $viewData = [
+            'projects' => $projects,
+            'category' => $category
+        ];
+        return view('web::project.index', $viewData);
     }
 }

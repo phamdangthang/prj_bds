@@ -56,6 +56,7 @@
                                             <th style="min-width: 110px">Ảnh đại diện</th>
                                             <th>Tiêu đề</th>
                                             <th>Slug</th>
+                                            <th>Danh mục</th>
                                             <th>Người đăng</th>
                                             <th style="min-width: 100px">Ngày tạo</th>
                                             <th style="min-width: 155px">Hành đồng</th>
@@ -74,6 +75,7 @@
                                                 </td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->slug }}</td>
+                                                <td>{{ $item->category->name }}</td>
                                                 <td>{{ $item->admin->name }}</td>
                                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                                 <td>

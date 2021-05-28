@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-lg-9 col-md-12 col-sm-12 col-12">
 				<div class="cate">
-					<h1 class="title-cate">DỰ ÁN</h1>
+					<h1 class="title-cate text-uppercase">{{ $category->name }}</h1>
 				</div>
 
 				@foreach ($projects as $item)
