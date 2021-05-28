@@ -9,10 +9,13 @@
 						<a href="{{ route('home') }}"><span>Trang chủ</span></a>
 					</li>
 					<li>
-						<a href="{{ route('project-index') }}"><span>Dự án</span></a>
+						<a href="{{ route('project-of-category', [
+									'slug' => $project->category->slug, 
+									'id' => $project->category->id
+									]) }}"><span>{{ $project->category->name }}</span></a>
 					</li>
 					<li>
-						<a><span>Chi tiết dự án</span></a>
+						<a><span>{{ $project->category->name }}</span></a>
 					</li>
 				</ul>
 

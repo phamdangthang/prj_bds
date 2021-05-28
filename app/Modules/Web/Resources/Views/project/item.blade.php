@@ -27,7 +27,7 @@
                     <div class="row row5">
                         <div class="col-md-12 pad5">
                             <a href="{{ $href }}" class="c-img img-larg hv-scale">
-                                <img src="{{ asset($images['0']) }}" alt="">
+                                <img src="{{ asset($images['0']['0']) }}" alt="">
                             </a>
                         </div>
                     </div>

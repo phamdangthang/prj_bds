@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\BlogCreateRequest;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
@@ -34,7 +35,13 @@ class BlogController extends Controller
     }
 
     public function create() {
-        return view('admin::blog.create');
+        $categories = Category::where('type', NEWS)->get();
+
+        $data = [
+            'categories' => $categories,
+        ];
+
+        return view('admin::blog.create', $data);
     }
 
     public function store(BlogCreateRequest $request) {
@@ -42,6 +49,7 @@ class BlogController extends Controller
         $insert = [
             'name' => $params['name'],
             'slug' => $params['slug'],
+            'category_id' => $params['category_id'],
             'content' => $params['content'],
             'admin_id' => auth()->guard('admin')->user()->id,
             'logo' => $params['logo'],
@@ -56,7 +64,10 @@ class BlogController extends Controller
 
     public function edit($id) {
         $dataEdit = $this->blog->find($id);
+        $categories = Category::where('type', NEWS)->get();
+
         $viewData = [
+            'categories' => $categories,
             'dataEdit' => $dataEdit
         ];
         return view('admin::blog.edit', $viewData);

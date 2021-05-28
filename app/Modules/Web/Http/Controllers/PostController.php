@@ -22,14 +22,29 @@ class PostController extends AppController
         $this->post = $post;
     }
 
-    public function index() {
-        $categories = Category::orderBy('id', 'desc')
-            ->paginate(PAGE_LIMIT);
-        $posts = $this->post->paginate(PAGE_LIMIT);
+    // public function index() {
+    //     $categories = Category::orderBy('id', 'desc')
+    //         ->paginate(PAGE_LIMIT);
+    //     $posts = $this->post->paginate(PAGE_LIMIT);
+
+    //     $viewData = [
+    //         'categories' => $categories,
+    //         'posts' => $posts,
+    //     ];
+    //     return view('web::post.index', $viewData);
+    // }
+
+    public function newsCategory($slug, $id) {
+        $category = Category::findOrFail($id);
+        $posts = Blog::where('category_id', $id)->paginate(PAGE_LIMIT);
+        // dd($posts);
+        $categories = Category::where('type', NEWS)->get();
+
 
         $viewData = [
             'categories' => $categories,
-            'posts' => $posts,
+            'category' => $category,
+            'posts' => $posts
         ];
         return view('web::post.index', $viewData);
     }

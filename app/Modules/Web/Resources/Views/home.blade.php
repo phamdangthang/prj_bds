@@ -72,5 +72,7 @@
 		</div>
 	</div>
 
-	@include('web::includes.form-register')
+	@if (!auth()->user())
+		@include('web::includes.form-register')
+	@endif
 @endsection

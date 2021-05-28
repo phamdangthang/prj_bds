@@ -5,6 +5,7 @@ namespace App\Modules\Web\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\City;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use View;
 
@@ -16,6 +17,11 @@ class AppController extends Controller
 
         $projectHot = Project::where('is_hot', 1)->limit(10)->get();
         View::share('projectHot', $projectHot);
+
+        $projectCategories = Category::where('type', PROJECT)->get();
+        $newsCategories = Category::where('type', NEWS)->get();
+        View::share('projectCategories', $projectCategories);
+        View::share('newsCategories', $newsCategories);
     }
 
     public function getCity() {

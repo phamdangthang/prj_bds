@@ -4,7 +4,7 @@
 	<div class="container cate-news">
 		<div class="row">
 			<div class="col-lg-9 col-md-12 col-sm-12 col-12 posts">
-				<h1 class="title-cate">TIN BẤT ĐỘNG SẢN - TIN NỔI BẬT</h1>
+				<h1 class="title-cate text-uppercase">{{ $category->name }}</h1>
 
 				@foreach ($posts as $item)
 					<div class="news">
@@ -36,10 +36,13 @@
 					<h3 class="title-index-right">CHỦ ĐỀ ĐƯỢC QUAN TÂM</h3>
 					<ul>
 						@foreach ($categories as $item)
-							<li><a href="{{ route('news-index') }}">{{ $item->name }}</a></li>
+							<li><a href="{{ route('project-of-category', [
+									'slug' => $item->slug, 
+									'id' => $item->id
+									]) }}">{{ $item->name }}</a></li>
 						@endforeach
 					</ul>
-					<a href="" class="see-all">Xem tất cả >></a>
+					{{-- <a href="" class="see-all">Xem tất cả >></a> --}}
 				</div>
 
 				<a href="" class="qc3"><img src="{{ asset('images/qc3.jpg') }}" alt=""></a>

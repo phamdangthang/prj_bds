@@ -29,7 +29,7 @@ class ProjectWebRequest extends FormRequest
             'address' => 'required',
             'price' => 'required',
             'usage_status' => 'required',
-            'acreage',
+            'acreage' => 'required',
             'number_of_bedrooms' => 'required',
             'number_of_toilets' => 'required',
             'name' => 'required',

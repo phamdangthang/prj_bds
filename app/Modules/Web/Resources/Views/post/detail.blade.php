@@ -33,10 +33,13 @@
 					<h3 class="title-index-right">CHỦ ĐỀ ĐƯỢC QUAN TÂM</h3>
 					<ul>
 						@foreach ($categories as $item)
-							<li><a href="{{ route('news-index') }}">{{ $item->name }}</a></li>
+							<li><a href="{{ route('project-of-category', [
+									'slug' => $item->slug, 
+									'id' => $item->id
+									]) }}">{{ $item->name }}</a></li>
 						@endforeach
 					</ul>
-					<a href="" class="see-all">Xem tất cả >></a>
+					{{-- <a href="" class="see-all">Xem tất cả >></a> --}}
 				</div>
 
 				<a href="" class="qc3"><img src="{{ asset('images/qc3.jpg') }}" alt=""></a>

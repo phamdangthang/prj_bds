@@ -26,19 +26,32 @@
 							<li><a href="">Bán loại bất động sản khác</a></li>
 						</ul>
 					</li> --}}
-					<li><a href="{{ route('project-index') }}">DỰ ÁN</a>
-						{{-- <ul>
-							<li><a href="">Bán căn hộ chung cư</a></li>
-							<li><a href="">Bán nhà riêng</a></li>
-							<li><a href="">Bán nhà biệt thự liền kề</a></li>
-							<li><a href="">Bán nhà mặt phố</a></li>
-							<li><a href="">Bán đất nền dự án</a></li>
-							<li><a href="">Bán trang trại, khu nghỉ dưỡng</a></li>
-							<li><a href="">Bán kho nhà xưởng</a></li>
-							<li><a href="">Bán loại bất động sản khác</a></li>
-						</ul> --}}
+					<li><a href="void:javascript(0)">DỰ ÁN</a>
+						<ul>
+							@foreach ($projectCategories as $item)
+								<li>
+									<a href="{{ route('project-of-category', [
+									'slug' => $item->slug, 
+									'id' => $item->id
+									]) }}">{{ $item->name }}
+									</a>
+								</li>
+							@endforeach
+						</ul>
 					</li>
-					<li><a href="{{ route('news-index') }}">TIN TỨC</a></li>
+					<li><a href="void:javascript(0)">TIN TỨC</a>
+						<ul>
+							@foreach ($newsCategories as $item)
+								<li>
+									<a href="{{ route('news-of-category', [
+									'slug' => $item->slug, 
+									'id' => $item->id
+									]) }}">{{ $item->name }}
+									</a>
+								</li>
+							@endforeach
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<div class="col-lg-auto header-right">
