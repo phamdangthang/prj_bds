@@ -279,3 +279,12 @@ table tr th {
 .media-avatar-preview .img-preview {
     position: relative;
 }
+
+.btn {
+    font-size: 13px;
+}
+
+.btn-cancel {
+    background: #464c52;
+    border-color: #464c52;
+}

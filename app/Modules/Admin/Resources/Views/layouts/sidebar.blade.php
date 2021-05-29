@@ -28,19 +28,19 @@
 				</li>
 				<li class="{{ request()->segment(2) === 'contract' ? 'active' : '' }}">
 					<a href="{{ route('admin.contract.index') }}">
-						<i class="fe-package"></i>
+						<i class="fa fa-file-contract"></i>
 						<span>Hợp đồng</span>
 					</a>
 				</li>
 				<li class="{{ request()->segment(2) === 'transaction' ? 'active' : '' }}">
 					<a href="{{ route('admin.transaction.index') }}">
-						<i class="fe-package"></i>
+						<i class="fe-truck"></i>
 						<span>Giao dịch</span>
 					</a>
 				</li>
 				<li class="{{ request()->segment(2) === 'statistic' ? 'active' : '' }}">
 					<a href="{{ route('admin.statistic.index') }}">
-						<i class="fe-package"></i>
+						<i class="fa fa-chart-bar"></i>
 						<span>Thống kê</span>
 					</a>
 				</li>

@@ -75,7 +75,7 @@
                                                 </td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->slug }}</td>
-                                                <td>{{ $item->category->name }}</td>
+                                                <td>{{ $item->category->name ?? null }}</td>
                                                 <td>{{ $item->admin->name }}</td>
                                                 <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                                 <td>
