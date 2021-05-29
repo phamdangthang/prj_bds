@@ -37,9 +37,9 @@
 				<div class="col-lg-4 col-md-12 col-sm-12 col-12 introduce">
 					<a href="" class="logo-footer"><img src="{{ asset('images/logo-footer.png') }}" alt=""></a>
 					<h4>CÔNG TY CỔ PHẦN BẤT ĐỘNG SẢN WIKI</h4>
-					<p>Địa chỉ: Tầng 6, Toà nhà MD Complex, Số 68 Phố Nguyễn Cơ Thạch, Cầu Diễn, Nam Từ Liêm, TP. Hà Nội</p>
-					<p>Hotline: <a href="tel:0968188122" title="">0968.188.122</a></p>
-					<p>Email: <a href="mailto:wikihouse123@gmail.com" title="">wikihouse123@gmail.com</a></p>
+					<p>Địa chỉ: R3 Royal City, số 72 Nguyễn Trãi, phường Thượng Đình, quận Thanh Xuân, Hà Nội</p>
+					<p>Hotline: <a href="tel:0958121522" title="">0958 121 522</a></p>
+					<p>Email: <a href="mailto:info@vinhomesland.vn" title="">info@vinhomesland.vn</a></p>
 					<a href="" class="certification"><img src="{{ asset('images/dadky.png') }}" alt=""></a>
 				</div>
 				<div class="col-lg-8 col-md-12 col-sm-12 col-12">

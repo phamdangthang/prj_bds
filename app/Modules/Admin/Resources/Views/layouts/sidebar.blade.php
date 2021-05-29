@@ -8,12 +8,12 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="{{ request()->segment(2) === 'dashboard' ? 'active' : '' }}">
+                {{-- <li class="{{ request()->segment(2) === 'dashboard' ? 'active' : '' }}">
 					<a href="{{ route('admin.dashboard') }}">
 						<i class="fas fa-tachometer-alt"></i>
 						<span>Trang chủ</span>
 					</a>
-				</li>
+				</li> --}}
                 <li class="{{ request()->segment(2) === 'category' ? 'active' : '' }}">
 					<a href="{{ route('admin.category.index') }}">
 						<i class="fa fa-copyright"></i>

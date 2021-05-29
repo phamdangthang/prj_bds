@@ -84,23 +84,23 @@
 
 		<div class="row">
 			<div class="col-lg-12 filter">
-				<h2>Wikihouse mua bán nhà trực tuyến</h2>
+				<h2>Vinhomes Land mua bán nhà trực tuyến</h2>
 				<!-- Nav pills -->
 				<div class="row justify-content-lg-center">
 					<div class="col-lg-auto">
 						<ul class="nav nav-pills">
 							<li class="nav-item">
-								<a class="nav-link active" data-toggle="pill" href="#muaban">MUA BÁN</a>
+								<a class="nav-link active" data-toggle="pill" href="#project">DỰ ÁN</a>
 							</li>
-							<li class="nav-item">
+							{{-- <li class="nav-item">
 								<a class="nav-link" data-toggle="pill" href="#duan">DỰ ÁN</a>
-							</li>
+							</li> --}}
 						</ul>
 					</div>
 				</div>
 
 				<div class="tab-content row m-top20">
-					<div class="tab-pane active tab-purchase col-lg-12" id="muaban">
+					<div class="tab-pane active tab-purchase col-lg-12" id="project">
 						<form action="#">
 							<input type="text" placeholder="Tìm kiếm theo tên dự án">
 							<a href=""><img src="{{ asset('images/timkiem.png') }}" alt=""></a>
@@ -119,8 +119,8 @@
 								</div>
 								<div class="col-lg filter-by">
 									<select name="" id="" class="select2">
-										<option value="">Chọn dự án</option>
-										<option value="">Chọn dự án</option>
+										<option value="">Diện tích</option>
+										<option value="">Diện tích</option>
 									</select>
 								</div>
 								<div class="col-lg">
@@ -160,7 +160,7 @@
 
 		<div class="row">
 			<div class="col filter">
-				<h2>Wikihouse mua bán nhà trực tuyến</h2>
+				<h2>Vinhomes Land mua bán nhà trực tuyến</h2>
 
 				<div class="row justify-content-center">
 					<div class="col-auto">

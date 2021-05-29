@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateContractsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('project_id');
             $table->integer('user_id');
             $table->integer('status');
-            $table->integer('total_money');
+            $table->bigInteger('total_money');
             $table->timestamps();
         });
     }

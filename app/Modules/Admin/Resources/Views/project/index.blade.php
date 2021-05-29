@@ -47,7 +47,7 @@
                                             <th>Người đăng</th>
                                             <th>Trạng thái</th>
                                             <th style="min-width: 100px">Ngày đăng</th>
-                                            <th style="min-width: 155px">Hành đồng</th>
+                                            <th style="min-width: 274px">Hành đồng</th>
                                         </tr>
                                     </thead>
                                     <tbody>

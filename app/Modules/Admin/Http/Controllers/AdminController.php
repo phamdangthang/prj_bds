@@ -27,7 +27,7 @@ class AdminController extends Controller
         $remember = isset($request->remember) ? true : false;
 
         if ( Auth()->guard('admin')->attempt($credentials, $remember) ) {
-            return redirect(route('admin.dashboard'));
+            return redirect(route('admin.project.index'));
         } else {
             $request->session()->flash('login-error', 'Sai tài khoản hoặc mật khẩu');
             return redirect()->back();
