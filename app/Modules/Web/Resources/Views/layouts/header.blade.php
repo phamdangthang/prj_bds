@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row align-items-center justify-content-lg-center">
 			<div class="col-lg-2">
-				<a href=""><img src="{{ asset('images/logo_bds.jpg') }}" alt=""></a>
+				<a href=""><img src="{{ asset('images/logo_bds.png') }}" alt=""></a>
 			</div>
 			<div class="col-lg-6 menu">
 				<ul>
