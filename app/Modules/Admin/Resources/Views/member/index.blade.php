@@ -55,6 +55,7 @@
                                             <th>ID</th>
                                             <th>Tên</th>
                                             <th>Email</th>
+                                            <th>Số điện thoại</th>
                                             <th style="min-width: 100px">Ngày tạo</th>
                                             <th>Vai trò</th>
                                             <th style="min-width: 155px">Hành đồng</th>
@@ -67,6 +68,7 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
                                             <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
         
                                             @php 

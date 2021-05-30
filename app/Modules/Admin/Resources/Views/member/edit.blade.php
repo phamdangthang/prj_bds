@@ -40,6 +40,12 @@
                         {!! $errors->first('email', '<span class="help-block error">:message</span>') !!}
                     </div>
 
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="number" name="phone" class="form-control" value="{{ $user->phone }}">
+                        {!! $errors->first('phone', '<span class="help-block error">:message</span>') !!}
+                    </div>
+
                     <div class='form-group'>
                         <p class="mr-3">Vai trò</p>
                         <select 
