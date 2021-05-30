@@ -512,6 +512,7 @@ header.header {
       font-size: 60px;
       text-align: center;
       font-family: 'RCB';
+      background: rgba(0, 0, 0, 0.5);
       color: #fff; }
     header.header .filter ul.nav-pills li.nav-item a.nav-link {
       padding: 11px 18px;

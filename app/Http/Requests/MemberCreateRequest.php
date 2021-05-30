@@ -27,6 +27,7 @@ class MemberCreateRequest extends FormRequest
             'username' => 'required',
             'name' => 'required',
             'email' => 'required|unique:admins',
+            'phone' => 'required|size:10',
         ];
     }
 }
