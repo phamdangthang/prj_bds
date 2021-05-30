@@ -22,6 +22,9 @@ class AppController extends Controller
         $newsCategories = Category::where('type', NEWS)->get();
         View::share('projectCategories', $projectCategories);
         View::share('newsCategories', $newsCategories);
+
+        $cities = City::all();
+        View::share('cities', $cities);
     }
 
     public function getCity() {

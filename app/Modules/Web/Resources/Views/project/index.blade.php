@@ -43,10 +43,10 @@
 					</div>
 				</div>
 
-				<div class="order-product">
+				{{-- <div class="order-product">
 					<h3 class="title-index-right">ĐẶT HÀNG SẢN PHẨM</h3>
 					@include('web::includes.form-order')
-				</div>
+				</div> --}}
 
 				<div class="area">
 					<h3 class="title-index-right">BÁN CĂN HỘ TẠI HÀ NỘI</h3>

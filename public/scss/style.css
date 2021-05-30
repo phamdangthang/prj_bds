@@ -566,7 +566,8 @@ header.header {
         font-family: 'RCB';
         position: relative;
         transition: .3s;
-        padding: 3px 0 3px 30px;
+        /*padding: 3px 0 3px 30px;*/
+        padding: 0px 82px 0px 82px;
         height: 40px;
         cursor: pointer; }
         header.header .filter .tab-purchase form .btn-filter img, header.header .filter .tab-lease form .btn-filter img, header.header .filter .tab-project form .btn-filter img {

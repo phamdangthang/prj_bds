@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-12 col-sm-12 col-12 introduce">
-					<a href="" class="logo-footer"><img src="{{ asset('images/logo-footer.png') }}" alt=""></a>
+					<a href="{{ route('home') }}" class="logo-footer"><img src="{{ asset('images/logo_bds.png') }}" alt=""></a>
 					<h4>CÔNG TY CỔ PHẦN BẤT ĐỘNG SẢN WIKI</h4>
 					<p>Địa chỉ: R3 Royal City, số 72 Nguyễn Trãi, phường Thượng Đình, quận Thanh Xuân, Hà Nội</p>
 					<p>Hotline: <a href="tel:0958121522" title="">0958 121 522</a></p>

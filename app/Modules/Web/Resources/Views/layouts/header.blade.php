@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row align-items-center justify-content-lg-center">
 			<div class="col-lg-2">
-				<a href=""><img src="{{ asset('images/logo_bds.png') }}" alt=""></a>
+				<a href="{{ route('home') }}"><img src="{{ asset('images/logo_bds.png') }}" alt=""></a>
 			</div>
 			<div class="col-lg-6 menu">
 				<ul>
@@ -101,33 +101,44 @@
 
 				<div class="tab-content row m-top20">
 					<div class="tab-pane active tab-purchase col-lg-12" id="project">
-						<form action="#">
-							<input type="text" placeholder="Tìm kiếm theo tên dự án">
-							<a href=""><img src="{{ asset('images/timkiem.png') }}" alt=""></a>
+						<form action="{{ route('home') }}" method="GET">
+							<input name="name" type="text" placeholder="Tìm kiếm theo tên dự án">
+							{{-- <a href=""><img src="{{ asset('images/timkiem.png') }}" alt=""></a> --}}
 							<div class="row m-top20">
 								<div class="col-lg filter-by">
-									<select name="" id="" class="select2">
-										<option value="">Loại hình BĐS</option>
-										<option value="">Loại hình BĐS</option>
+									<select name="usage_status" id="" class="select2">
+										<option value="">Tình trạng BĐS</option>
+										<option value="{{ NEW_TO_USE }}">Mới xây</option>
+										<option value="{{ USED_ONE_YEAR }}">Đã sử dụng 1 năm</option>
+										<option value="{{ USED_TWO_YEAR }}">Đã sử dụng 2 năm</option>
+										<option value="{{ USED_THREE_YEAR }}">Đã sử dụng 3 năm</option>
 									</select>
 								</div>
 								<div class="col-lg filter-by">
-									<select name="" id="" class="select2">
+									<select name="city_id" id="" class="select2">
 										<option value="">Chọn Quận/ Huyện</option>
-										<option value="">Chọn Quận/ Huyện</option>
+										@foreach ($cities as $item)
+											<option value="{{ $item->id }}">{{ $item->name }}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="col-lg filter-by">
-									<select name="" id="" class="select2">
-										<option value="">Diện tích</option>
-										<option value="">Diện tích</option>
+									<select name="acreage" id="" class="select2">
+										<option value="">Chọn diện tích</option>
+										<option value="< 100">Dưới 100m²</option>
+										<option value="100 - 300">Từ 100m² - 300m²</option>
+										<option value="> 300">Trên 300m²</option>
 									</select>
 								</div>
 								<div class="col-lg">
-									<a class="btn-filter">
+									{{-- <a class="btn-filter">
 										<img src="{{ asset('images/icon-filter.png') }}" alt="">
 										<span>TÌM NGAY</span>
-									</a>
+									</a> --}}
+									<button type="submit" class="btn-filter">
+										<img src="{{ asset('images/icon-filter.png') }}" alt="">
+										<span>TÌM NGAY</span>
+									</button>
 								</div>
 							</div>
 						</form>

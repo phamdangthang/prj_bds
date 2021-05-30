@@ -15,7 +15,12 @@
 					@include('web::includes.project-home', ['item' => $item])
 				@endforeach
 
-				{{ $projects->appends(['search' => $search ?? []])->links() }}
+				{{ $projects->appends([
+					'name' => $request->name,
+					'usage_status' => $request->usage_status,
+					'city_id' => $request->city_id,
+					'acreage' => $request->acreage,
+				])->links() }}
 			</div>
 
 			<div class="col-lg-3 col-md-12 col-sm-12 col-12 index-right">
@@ -46,10 +51,10 @@
 					</div>
 				</div>
 
-				<div class="order-product">
+				{{-- <div class="order-product">
 					<h3 class="title-index-right">ĐẶT HÀNG SẢN PHẨM</h3>
 					@include('web::includes.form-order')
-				</div>
+				</div> --}}
 
 				<div class="area">
 					<h3 class="title-index-right">BÁN CĂN HỘ TẠI HÀ NỘI</h3>
