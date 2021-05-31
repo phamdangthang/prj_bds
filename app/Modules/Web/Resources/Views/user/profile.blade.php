@@ -10,6 +10,11 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
+                    <label>Mã khách hàng <span class="required">*</span></label>
+                    <input type="text" class="form-control" value="{{ auth()->user()->code }}" readonly>
+                    <span>Nếu bạn chưa có mã, chúng tôi sẽ tự động tạo cho bạn khi cập nhật lại thông tin cá nhân</span>
+                </div>
+                <div class="form-group">
                     <label>Họ và tên <span class="required">*</span></label>
                     <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}">
                     {!! $errors->first('name', '<span class="help-block error">:message</span>') !!}

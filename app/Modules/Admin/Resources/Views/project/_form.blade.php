@@ -5,6 +5,12 @@
             <div class="box-body">
                 <div class="card-box">
                     @include('admin::includes.form-title')
+
+                    <div class="form-group">
+                        <label>Mô tả ngắn <span class="required">*</span></label>
+                        <input type="text" name="short_content" class="form-control" value="{{ old('short_content', $dataEdit->short_content ?? '') }}">
+                        {!! $errors->first('short_content', '<span class="error">:message</span>') !!}
+                    </div>
                 </div>
             </div>
         </div>

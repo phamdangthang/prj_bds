@@ -131,6 +131,7 @@ class ProjectController extends Controller
         }
         $dataSave = [
             'category_id' => $params['category_id'],
+            'short_content' => $params['short_content'],
             'city_id' => $params['city_id'],
             'address' => $params['address'],
             'price' => $params['price'],
@@ -151,7 +152,7 @@ class ProjectController extends Controller
             'admin_id' => auth()->guard('admin')->user()->id,
             'note' => $params['note'],
             'images' => json_encode($params['images']),
-            'is_hot' => $params['is_hot']
+            'is_hot' => $params['is_hot'] ?? 0
         ];
 
         return $dataSave;

@@ -25,6 +25,7 @@ class ProjectUpdateRequest extends FormRequest
     {
         return [
             'category_id' => 'required',
+            'short_content' => 'required',
             'city_id' => 'required',
             'address' => 'required',
             'price' => 'required',
@@ -46,6 +47,7 @@ class ProjectUpdateRequest extends FormRequest
     public function messages() {
         return [
             'category_id.required' => 'Trường này không được để trống',
+            'short_content.required' => 'Trường này không được để trống',
             'city_id.required' => 'Trường này không được để trống',
             'address.required' => 'Trường này không được để trống',
             'price.required' => 'Trường này không được để trống',

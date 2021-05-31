@@ -40,6 +40,7 @@ class UserController extends AppController
             'email' => $params['email'],
             'remember_token' => Str::random(60),
             'password' => Hash::make($params['password_confirm']),
+            'code' => 'KH'. (($this->user->orderBy('id', 'desc')->first()->id ?? 0) + 1)
         ]);
 
         if ($created) {
@@ -107,8 +108,15 @@ class UserController extends AppController
             unset($params['password']);
             unset($params['confirm_password']);
         }
-        
-        User::where('email', $params['email'])->update($params);
+
+        $findUser = User::where('email', $params['email'])->first();
+
+        if (!$findUser->code) {
+            $params = array_merge($params, [
+                'code' => 'KH' . (($this->user->orderBy('id', 'desc')->first()->id ?? 0) + 1)
+            ]);
+        }
+        $findUser->update($params);
 
         return redirect()->back()->with('alert-success', 'Cập nhật thông tin cá nhân thành công');
     }

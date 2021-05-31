@@ -5,7 +5,7 @@
     <div class="input-box">
         <div class="position-relative">
             <i class="fa fa-user icon"></i>
-            <input type="text" class="info" placeholder="{{ __('Họ và tên') }}" value="{{ old('name') }}" name="name" required>
+            <input type="text" id="full-name" class="info" placeholder="{{ __('Họ và tên') }}" value="{{ old('name') }}" name="name" required>
         </div>
     </div>
     <div class="input-box">
@@ -97,13 +97,13 @@
                     url: url,
                     method: 'POST',
                     data: {
-                        name: $('input[name=name]').val(),
-                        email: $('input[name=email]').val(),
-                        phone: $('input[name=phone]').val(),
-                        address: $('input[name=address]').val(),
-                        password: $('input[name=password]').val(),
-                        password_confirm: $('input[name=password_confirm]').val(),
-                        current_path: $('input[name=current_path]').val(),
+                        name: $('#full-name').val(),
+                        email: $('input[name="email"]').val(),
+                        phone: $('input[name="phone"]').val(),
+                        address: $('input[name="address"]').val(),
+                        password: $('input[name="password"]').val(),
+                        password_confirm: $('input[name="password_confirm"]').val(),
+                        current_path: $('input[name="current_path"]').val(),
                     },
                     beforeSend: function () {
                         $('body').addClass('busy');

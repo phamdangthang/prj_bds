@@ -8,15 +8,6 @@
 					@csrf
 					<p>Lưu ý<span class="required">*</span>: Bạn phải đăng ít nhất 1 ảnh.</p>
 					<div class="row row5">
-						{{-- <div class="col-lg-6 col-md-6 col-sm-6 col-12 pad5">
-							<p>Danh mục <span class="required">*</span></p>
-							<select name="category_id" required>
-								<option value=""></option>
-								@foreach ($categories as $item)
-									<option value="{{ $item->id }}">{{ $item->name }}</option>
-								@endforeach
-							</select>
-						</div> --}}
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Danh mục <span class="required">*</span></p>
 							<select name="category_id" required>
@@ -85,6 +76,10 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Tiêu đề  <span class="required">*</span></p>
 							<input type="text" name="name" required value="{{ old('name') }}" placeholder="Nhập tiêu đề">
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
+							<p>Mô tả ngắn  <span class="required">*</span></p>
+							<textarea name="short_content" required rows="2" placeholder="Nhập mô tả ngắn giới thiệu dự án"></textarea>
 						</div>
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12 pad5">
 							<p>Mô tả chi tiết  <span class="required">*</span></p>

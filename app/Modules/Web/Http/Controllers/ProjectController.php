@@ -47,6 +47,7 @@ class ProjectController extends AppController
 
         $dataInsert = [
             'category_id' => $params['category_id'],
+            'short_content' => $params['short_content'],
             'city_id' => $params['city_id'],
             'address' => $params['address'],
             'price' => $params['price'],
@@ -151,7 +152,7 @@ class ProjectController extends AppController
 
     public function projectCategory($slug, $id) {
         $category = Category::findOrFail($id);
-        $projects = Project::where('category_id', $id)->where('status', 'approved')->paginate(PAGE_LIMIT);
+        $projects = Project::where('category_id', $id)->where('status', APPROVED)->paginate(PAGE_LIMIT);
 
          $viewData = [
             'projects' => $projects,
