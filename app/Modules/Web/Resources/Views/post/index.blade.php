@@ -17,7 +17,7 @@
 							<div class="col-lg-7 col-md-7 col-sm-12 col-12 pad5">
 								<h3><a href="{{ route('news-detail', ['slug' => $item->slug, 'id' => $item->id]) }}">{{ $item->name }}</a></h3>
 								<span class="date-submitted">{{ date('d/m/Y', strtotime($item->created_at)) }}</span>
-								<div class="text-eclipse" style="max-width: 100%">{!! $item->content !!}</div>
+								<div class="text-eclipse" style="max-width: 100%; white-space: break-spaces">{!! substr_replace($item->content, "...", 400) !!}</div>
 							</div>
 						</div>
 					</div>
