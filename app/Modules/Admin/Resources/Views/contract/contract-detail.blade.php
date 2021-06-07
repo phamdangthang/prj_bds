@@ -42,6 +42,18 @@
                             {{ $contract->code }}
                         </div>
                         <div class="col-md-3">
+                            Mã khách hàng:
+                        </div>
+                        <div class="col-md-9">
+                            {{ $contract->user->code }}
+                        </div>
+                        <div class="col-md-3">
+                            Tên khách hàng:
+                        </div>
+                        <div class="col-md-9">
+                            {{ $contract->user->name }}
+                        </div>
+                        <div class="col-md-3">
                             Tên dự án:
                         </div>
                         <div class="col-md-9">
