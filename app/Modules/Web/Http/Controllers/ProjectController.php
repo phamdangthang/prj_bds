@@ -140,6 +140,10 @@ class ProjectController extends AppController
                 'code' => 'HD'.$contract->id,
             ]);
 
+            $project->update([
+                'status' => 'order'
+            ]);
+
 
             DB::commit();
             return redirect('/')->with('alert-success', 'Đặt mua dự án thành công!');
