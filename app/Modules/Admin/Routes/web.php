@@ -64,6 +64,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/delete/{id}', 'BlogController@delete')->name('blog.delete');
         });
 
+        // Khách hàng
+        Route::group(['prefix' => 'customer'], function(){
+            Route::get('/', 'CustomerController@index')->name('customer.index');
+            Route::get('/view/{id}', 'CustomerController@view')->name('customer.view');
+        });
+
         // Thành viên
         Route::group(['prefix' => 'member'], function(){
             Route::get('/', 'MemberController@index')->name('member.index');
