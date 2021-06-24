@@ -53,11 +53,12 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Mã</th>
                                             <th>Tên</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
                                             <th style="min-width: 100px">Ngày tạo</th>
-                                            <th>Vai trò</th>
+                                            <th>Phòng ban</th>
                                             <th style="min-width: 155px">Hành đồng</th>
                                         </tr>
                                     </thead>
@@ -66,6 +67,7 @@
                                         @foreach ($members as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
+                                            <td>{{ $item->code }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>

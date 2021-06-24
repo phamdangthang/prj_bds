@@ -137,7 +137,7 @@ class ProjectController extends AppController
             ]);
 
             $contract->update([
-                'code' => 'HD'.$contract->id,
+                'code' => 'HD'.$contract->id.strtoupper(auth()->user()->name),
             ]);
 
             $project->update([

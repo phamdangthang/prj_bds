@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MemberCreateRequest extends FormRequest
+class ConfirmTransactionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,15 @@ class MemberCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => 'required|unique:admins',
-            'username' => 'required',
-            'name' => 'required',
-            'email' => 'required|unique:admins',
-            'phone' => 'required|size:10',
+            'image' => 'required',
+            'confirmation_date' => 'required',
+        ];
+    }
+
+    public function messages() {
+        return [
+            'image.required' => 'Ảnh giao dịch không được để trống',
+            'confirmation_date.required' => 'Thời gian giao dịch không được để trống',
         ];
     }
 }

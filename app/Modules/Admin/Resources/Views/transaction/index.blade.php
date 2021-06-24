@@ -35,13 +35,13 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Mã giao dịch</th>
-                                            <th>Mã hợp đồng</th>
-                                            <th>Tên giao dịch</th>
-                                            <th>Mô tả</th>
+                                            <th style="min-width: 200px">Tên giao dịch</th>
                                             <th>Phần trăm</th>
-                                            <th>Thời hạn</th>
-                                            <th>Tổng tiền</th>
+                                            <th>Số tiền</th>
                                             <th style="min-width: 133px">Trạng thái</th>
+                                            <th style="min-width: 100px">Thời hạn</th>
+                                            <th style="min-width: 150px">Thời gian giao dịch</th>
+                                            <th style="min-width: 200px">Ảnh giao dịch</th>
                                             <th style="min-width: 245px">Hành động</th>
                                         </tr>
                                     </thead>
@@ -49,15 +49,10 @@
                                         @foreach ($transactions as $transaction)
                                             <tr>
                                                 <td>{{ $transaction->id }}</td>
-                                                <td>{{ $transaction->code }}</td>
-                                                <td>
-                                                    <a href="{{ route('admin.contract.contract-detail', $transaction->contract->id) }}">{{ $transaction->contract->code }}</a>
-                                                </td>
+                                                <td>{{ $transaction->contract->code }}</td>
                                                 <td>{{ $transaction->name }}</td>
-                                                <td>{{ $transaction->description }}</td>
                                                 <td>{{ $transaction->percent }}%</td>
-                                                <td>{{ date_format(new DateTime($transaction->duration),"d/m/Y") }}</td>
-                                                <td>{{ number_format($transaction->total_money) }}</td>
+                                                <td>{{ number_format($transaction->total_money) }}VNĐ</td>
                                                 <td>
                                                     @if ($transaction->status == 0)
                                                         <label class="label label-warning">Chờ thanh toán</label>
@@ -65,12 +60,12 @@
                                                         <label class="label label-success">Hoàn thành</label>
                                                     @endif
                                                 </td>
+                                                <td>{{ date_format(new DateTime($transaction->duration),"d/m/Y") }}</td>
+                                                <td>{{ isset($transaction->confirmation_date) ? date_format(new DateTime($transaction->confirmation_date),"d/m/Y H:i:s") : '' }}</td>
+                                                <td><img src="{{ asset($transaction->image) }}" alt="{{ $transaction->title }}" class="w-100 h-100"></td>
                                                 <td>
                                                     @if ($transaction->status == 0)
-                                                        <form method="POST" action="{{ route('admin.transaction.confirm', $transaction->id) }}" class="d-inline-block">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-success">Xác nhận</button>
-                                                        </form>
+                                                        <a href="{{ route('admin.transaction.confirm', $transaction->id) }}" class="btn btn-success">Xác nhận</a>
                                                         <a href="{{ route('admin.transaction.edit', $transaction->id) }}" class="btn btn-warning">Sửa</a>
                                                         <form method="POST" action="{{ route('admin.transaction.destroy', $transaction->id) }}" class="d-inline-block">
                                                             @csrf

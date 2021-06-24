@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use App\Models\Contract;
 use DB;
 use App\Http\Requests\TransactionRequest;
+use App\Http\Requests\ConfirmTransactionRequest;
 
 class TransactionController extends Controller
 {
@@ -32,14 +33,25 @@ class TransactionController extends Controller
 
     public function confirm($id)
     {
+        $transaction = Transaction::findOrFail($id);
 
+        $data = [
+            'transaction' => $transaction,
+        ];
+
+        return view('admin::transaction.confirm', $data);
+    }
+
+    public function postConfirm(ConfirmTransactionRequest $request, $id)
+    {
     	DB::beginTransaction();
         try {
 	    	$transaction = Transaction::findOrFail($id);
 
 	    	$transaction->update([
 	    		'status' => 1,
-                'confirmation_date' => date('Y-m-d'),
+                'confirmation_date' => date('Y-m-d H:i:s'),
+                'image' => $request->image,
 	    	]);
 
 	    	$total_percent = $transaction->contract->transactions->where('status', 1)->sum('percent');
@@ -60,7 +72,7 @@ class TransactionController extends Controller
 	 		}
 
             DB::commit();
-	    	return redirect()->back()->with('alert-success', 'Xác nhận giao dịch thành công!');
+	    	return redirect()->route('admin.contract.contract-detail', $transaction->contract->id)->with('alert-success', 'Xác nhận giao dịch thành công!');
         } catch (Exception $e) {
             DB::rollBack();
             throw new Exception($e->getMessage());

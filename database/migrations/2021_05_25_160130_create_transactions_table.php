@@ -22,7 +22,7 @@ class CreateTransactionsTable extends Migration
             $table->string('description');
             $table->integer('percent');
             $table->date('duration');
-            $table->date('confirmation_date')->nullable();
+            $table->datetime('confirmation_date')->nullable();
             $table->bigInteger('total_money');
             $table->integer('status');
             $table->timestamps();

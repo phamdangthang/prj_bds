@@ -1,16 +1,16 @@
 @extends('admin::layouts.master')
 
-@section('title') Vai trò @endsection
+@section('title') Phòng ban @endsection
 
 @section('breadcrumb')
     <section class="content-header">
         <h1>
-            Vai trò
+            Phòng ban
             <small>Danh sách</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li class="active">Vai trò</li>
+            <li class="active">Phòng ban</li>
         </ol>
     </section>
 @endsection
@@ -51,7 +51,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Vai trò</th>
+                                    <th>Phòng ban</th>
                                     <th>Quyền hạn</th>
                                     <th style="min-width: 100px">Ngày tạo</th>
                                     <th style="min-width: 155px">Hành động</th>
