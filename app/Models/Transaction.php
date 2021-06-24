@@ -17,6 +17,7 @@ class Transaction extends Model
         'total_money',
         'status',
         'confirmation_date',
+        'image',
     ];
 
     public function contract() {

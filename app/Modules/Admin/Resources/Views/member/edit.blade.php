@@ -47,7 +47,7 @@
                     </div>
 
                     <div class='form-group'>
-                        <p class="mr-3">Vai trò</p>
+                        <p class="mr-3">Phòng ban</p>
                         <select 
                             name="roles[]" 
                             id="addRole" 

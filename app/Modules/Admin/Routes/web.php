@@ -117,7 +117,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         // Giao dịch
         Route::group(['prefix' => 'transaction'], function(){
             Route::get('/', 'TransactionController@index')->name('transaction.index');
-            Route::post('/confirm/{id}', 'TransactionController@confirm')->name('transaction.confirm');
+            Route::get('/confirm/{id}', 'TransactionController@confirm')->name('transaction.confirm');
+            Route::post('/confirm/{id}', 'TransactionController@postConfirm')->name('transaction.postConfirm');
             Route::get('/create/{id}', 'TransactionController@create')->name('transaction.create');
             Route::get('/edit/{id}', 'TransactionController@edit')->name('transaction.edit');
             Route::post('/update/{id}', 'TransactionController@update')->name('transaction.update');
@@ -128,6 +129,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         // Thống kê
         Route::group(['prefix' => 'statistic'], function(){
             Route::get('/', 'StatisticController@index')->name('statistic.index');
+            Route::get('/category', 'StatisticController@categoryStatistic')->name('statistic.category');
+            Route::get('/overdue-contract', 'StatisticController@overdueContracttStatistic')->name('statistic.overdue-contract');
         });
     });
 });

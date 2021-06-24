@@ -1,16 +1,16 @@
 @extends('admin::layouts.master')
 
-@section('title') Vai trò @endsection
+@section('title') Phòng ban @endsection
 
 @section('breadcrumb')
     <section class="content-header">
         <h1>
-            Vai trò 
+            Phòng ban 
             <small>Cập nhật</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="{{ route('admin.role.index') }}">Vai trò</a></li>
+            <li><a href="{{ route('admin.role.index') }}">Phòng ban</a></li>
             <li class="active">Cập nhật</li>
         </ol>
     </section>

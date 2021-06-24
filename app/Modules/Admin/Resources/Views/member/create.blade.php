@@ -23,6 +23,12 @@
             <div class="box">
                 <div class="box-body">
                     <div class="form-group">
+                        <label>Mã nhân viên</label>
+                        <input type="text" name="code" class="form-control" value="{{ old('code') }}">
+                        {!! $errors->first('code', '<span class="help-block error">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group">
                         <label>Username</label>
                         <input type="text" name="username" class="form-control" value="{{ old('username') }}">
                         {!! $errors->first('username', '<span class="help-block error">:message</span>') !!}
@@ -47,7 +53,7 @@
                     </div>
 
                     <div class='form-group'>
-                        <p class="mr-3">Vai trò</p>
+                        <p class="mr-3">Phòng ban</p>
                         <select 
                             id="addRole"
                             class="select2 form-control select2Role" 

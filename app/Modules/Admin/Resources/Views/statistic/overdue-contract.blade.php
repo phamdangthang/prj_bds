@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 
-@section('title') Thống kê doanh thu nhân viên @endsection
+@section('title') Thống kê hợp đồng quá hạn @endsection
 
 @section('content')
     <div class="container-fluid">
@@ -11,13 +11,8 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="{{ route('admin.statistic.index') }}" method="GET" class="form-horizontal">
+                                    <form action="{{ route('admin.statistic.overdue-contract') }}" method="GET" class="form-horizontal">
                                         <div class="form-group row">
-                                            <div class="col-md-3">
-                                                <label>Mã nhân viên:</label>
-                                                <input type="text" name="search" class="form-control" placeholder="Mã nhân viên" value="{{ request()->search }}">
-                                            </div>
-
                                             <div class="col-md-3">
                                                 <label>Từ ngày:</label>
                                                 <input type="date" name="from_date" class="form-control" placeholder="Mã nhân viên" value="{{ request()->from_date }}">
@@ -40,33 +35,35 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <h5>Doanh thu hệ thống: {{ number_format($admins->sum('revenue')) }} VNĐ</h5>
                             <div class="table-responsive mt-3">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Mã nhân viên</th>
-                                            <th>Tên nhân viên</th>
-                                            <th>Doanh thu</th>
+                                            <th>Mã hợp đồng</th>
+                                            <th>Tên dự án</th>
+                                            <th>Mã khách hàng</th>
+                                            <th>Tên khách hàng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($admins as $admin)
+                                        @foreach ($contracts as $contract)
                                             <tr>
-                                                <td>{{ $admin->id }}</td>
-                                                <td>{{ $admin->code }}</td>
-                                                <td>{{ $admin->name }}</td>
-                                                <td>{{ number_format($admin->revenue) }} VNĐ</td>
+                                                <td>{{ $contract->id }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.contract.contract-detail', $contract->id) }}">{{ $contract->code }}</a>
+                                                </td>
+                                                <td style="max-width: 350px">{{ $contract->project->name }}</td>
+                                                <td>{{ $contract->user->code }}</td>
+                                                <td>{{ $contract->user->name }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {{ $admins->appends([
-                                    'search' => $request->search,
+                                {{ $contracts->appends([
                                     'from_date' => $request->from_date,
                                     'to_date' => $request->to_date,
-                                    ])->links() }}
+                                ])->links() }}
                             </div>
                         </div>
                     </div>

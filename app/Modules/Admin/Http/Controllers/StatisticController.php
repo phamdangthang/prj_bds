@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Category;
+use App\Models\Contract;
 
 class StatisticController extends Controller
 {
@@ -25,5 +27,52 @@ class StatisticController extends Controller
     	];
 
     	return view('admin::statistic.index', $data);
+    }
+
+    public function categoryStatistic(Request $request)
+    {
+        $categories = Category::query();
+
+        if ($request->search) {
+            $categories = $categories->where('name', 'like', '%'.$request->search.'%');
+        }
+
+        $categories = $categories->paginate(10);
+
+        $data = [
+            'categories' => $categories,
+            'request' => $request,
+        ];
+
+        return view('admin::statistic.category', $data);
+    }
+
+    public function overdueContracttStatistic(Request $request)
+    {
+        $contracts = Contract::whereHas('transactions', function ($query) {
+            $today = date('Y-m-d');
+            $query->where('status', 0)->where('duration', '<', $today);
+        });
+
+        if ($request->from_date) {
+            $contracts = $contracts->whereHas('transactions', function ($query) use ($request) {
+                $query->where('duration', '>=', $request->from_date);
+            });
+        }
+
+        if ($request->to_date) {
+            $contracts = $contracts->whereHas('transactions', function ($query) use ($request) {
+                $query->where('duration', '<=', $request->to_date);
+            });
+        }
+
+        $contracts = $contracts->paginate(10);
+
+        $data = [
+            'contracts' => $contracts,
+            'request' => $request,
+        ];
+
+        return view('admin::statistic.overdue-contract', $data);
     }
 }
