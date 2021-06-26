@@ -53,7 +53,7 @@ class BlogController extends Controller
             'content' => $params['content'],
             'admin_id' => auth()->guard('admin')->user()->id,
             'logo' => $params['logo'],
-            // 'status' => $params['status'],
+            'is_hot' => $params['is_hot'] ?? 0
         ];
         $created = $this->blog->insert($insert);
         if ($created) {
@@ -75,6 +75,9 @@ class BlogController extends Controller
 
     public function update(BlogUpdateRequest $request, $id) {
         $data = $request->all();
+        if (!isset($data['is_hot'])) {
+            $data['is_hot'] = 0;
+        }
         $blog = $this->blog->find($id);
         $updated = $blog->update(array_merge($data, [
             'admin_id' => auth()->guard('admin')->user()->id

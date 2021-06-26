@@ -15,6 +15,7 @@ class AddColumnToBlogsTable extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->integer('admin_id')->after('status');
+            $table->integer('is_hot');
         });
     }
 
@@ -27,6 +28,7 @@ class AddColumnToBlogsTable extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->dropColumn('admin_id');
+            $table->dropColumn('is_hot');
         });
     }
 }

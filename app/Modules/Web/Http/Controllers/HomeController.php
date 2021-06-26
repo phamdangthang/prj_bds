@@ -43,10 +43,12 @@ class HomeController extends AppController
         }
 
         $projects = $projects->orderBy('created_at', 'desc')->paginate(15);
+        $hot_news = Blog::where('is_hot', 1)->orderBy('created_at')->get();
 
         $viewData = [
             'projects' => $projects,
-            'request' => $request
+            'request' => $request,
+            'hot_news' => $hot_news,
         ];
     	return view('web::home', $viewData);
     }

@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <form action="{{ route('admin.project.index') }}" method="GET" class="form-horizontal">
+                                    <form action="{{ route('admin.contract.index') }}" method="GET" class="form-horizontal">
                                         <div class="form-group row">
                                             <div class="col-md-4">
                                                 <input type="text" name="search" class="form-control" placeholder="Mã hợp đồng" value="{{ request()->search }}">
