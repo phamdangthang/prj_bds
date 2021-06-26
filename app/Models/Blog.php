@@ -16,6 +16,7 @@ class Blog extends Model
         'admin_id',
         'category_id',
         'logo',
+        'is_hot',
     ];
 
     public function admin() {

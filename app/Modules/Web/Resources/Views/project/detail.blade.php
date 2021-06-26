@@ -41,7 +41,7 @@
 					<h3 class="title-cate-news-detail-2">Thông tin chính</h3>
 					<div class="d-lg-flex justify-content-lg-around d-md-flex justify-content-md-around d-sm-flex justify-content-sm-around">
 						<span class="info-main">Giá: {{ number_format($project->price) }} VND</span>
-						<span class="info-main">Bàn giao: {{ date('d/m/Y', strtotime($project->created_at)) }}</span>
+						<span class="info-main">Bàn giao: {{ date('d/m/Y', strtotime($project->created_at->addYear())) }}</span>
 						@if ($project->user)
 							<span class="info-main">Chủ đầu tư: {{ $project->user->name }}</span>
 						@else

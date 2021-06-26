@@ -37,6 +37,19 @@
 
         <div class="box">
             <div class="box-body">
+                <div class="form-group">
+                    <label for="is_hot">Tin nổi bật</label> <br/>
+                    <label class="switch switch-small">
+                        <input 
+                            type="checkbox" 
+                            name="is_hot"
+                            value="1"
+                            {{ isset($dataEdit->is_hot) && $dataEdit->is_hot ? 'checked' : '' }}
+                        >
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
                 <div class="form-group product-avatar">
                     <label class="mb-0">Ảnh đại diện <span class="required">*</span></label>
                     {!! $errors->first('logo', '<span class="help-block error">:message</span>') !!}
