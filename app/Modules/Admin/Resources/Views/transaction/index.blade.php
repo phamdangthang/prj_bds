@@ -62,7 +62,7 @@
                                                 </td>
                                                 <td>{{ date_format(new DateTime($transaction->duration),"d/m/Y") }}</td>
                                                 <td>{{ isset($transaction->confirmation_date) ? date_format(new DateTime($transaction->confirmation_date),"d/m/Y H:i:s") : '' }}</td>
-                                                <td><img src="{{ asset($transaction->image) }}" alt="{{ $transaction->title }}" class="w-100 h-100"></td>
+                                                <td><img src="{{ asset($transaction->image) }}" alt="{{ $transaction->title }}"></td>
                                                 <td>
                                                     @if ($transaction->status == 0)
                                                         <a href="{{ route('admin.transaction.confirm', $transaction->id) }}" class="btn btn-success">Xác nhận</a>
