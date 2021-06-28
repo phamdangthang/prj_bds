@@ -87,7 +87,7 @@
                                         @foreach ($transactions as $transaction)
                                             <tr>
                                                 <td>{{ $transaction->id }}</td>
-                                                <td>{{ $transaction->contract->code }}</td>
+                                                <td>{{ $transaction->code }}</td>
                                                 <td>{{ $transaction->name }}</td>
                                                 <td>{{ $transaction->percent }}%</td>
                                                 <td>{{ number_format($transaction->total_money) }}VNĐ</td>
@@ -102,7 +102,7 @@
                                                 <td>{{ isset($transaction->confirmation_date) ? date_format(new DateTime($transaction->confirmation_date),"d/m/Y H:i:s") : '' }}</td>
                                                 <td>
                                                     @if ($transaction->image)
-                                                        <img src="{{ asset($transaction->image) }}" alt="{{ $transaction->title }}" class="w-100 h-100">
+                                                        <img src="{{ asset($transaction->image) }}" alt="{{ $transaction->title }}">
                                                     @endif
                                                 </td>
                                                 <td>
