@@ -49,7 +49,7 @@
                                         @foreach ($transactions as $transaction)
                                             <tr>
                                                 <td>{{ $transaction->id }}</td>
-                                                <td>{{ $transaction->contract->code }}</td>
+                                                <td>{{ $transaction->code }}</td>
                                                 <td>{{ $transaction->name }}</td>
                                                 <td>{{ $transaction->percent }}%</td>
                                                 <td>{{ number_format($transaction->total_money) }}VNĐ</td>

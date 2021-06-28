@@ -31,7 +31,7 @@ class StatisticController extends Controller
 
     public function categoryStatistic(Request $request)
     {
-        $categories = Category::query();
+        $categories = Category::where('type', 0);
 
         if ($request->search) {
             $categories = $categories->where('name', 'like', '%'.$request->search.'%');
