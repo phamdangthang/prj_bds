@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Contract;
 use DB;
+use DateTime;
 use App\Http\Requests\TransactionRequest;
 use App\Http\Requests\ConfirmTransactionRequest;
 
@@ -48,11 +49,25 @@ class TransactionController extends Controller
         try {
 	    	$transaction = Transaction::findOrFail($id);
 
-	    	$transaction->update([
-	    		'status' => 1,
-                'confirmation_date' => date('Y-m-d H:i:s'),
-                'image' => $request->image,
-	    	]);
+            $duration = new DateTime($transaction->duration);
+            $today = new DateTime(date('Y-m-d'));
+
+            $number_day_overdue = $duration->diff($today)->format("%r%a");
+            if ($number_day_overdue > 0) {
+                $transaction->update([
+                    'status' => 1,
+                    'confirmation_date' => date('Y-m-d H:i:s'),
+                    'image' => $request->image,
+                    'total_money' => $transaction->total_money + ($number_day_overdue * 0.05 / 100 * $transaction->total_money),
+                ]);
+            }
+            else {
+    	    	$transaction->update([
+    	    		'status' => 1,
+                    'confirmation_date' => date('Y-m-d H:i:s'),
+                    'image' => $request->image,
+    	    	]);
+            }
 
 	    	$total_percent = $transaction->contract->transactions->where('status', 1)->sum('percent');
 
