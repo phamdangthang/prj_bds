@@ -50,13 +50,13 @@ class TransactionController extends Controller
 	    	$transaction = Transaction::findOrFail($id);
 
             $duration = new DateTime($transaction->duration);
-            $today = new DateTime(date('Y-m-d'));
+            $confirmation_date = new DateTime($request->confirmation_date);
 
-            $number_day_overdue = $duration->diff($today)->format("%r%a");
+            $number_day_overdue = $duration->diff($confirmation_date)->format("%r%a");
             if ($number_day_overdue > 0) {
                 $transaction->update([
                     'status' => 1,
-                    'confirmation_date' => date('Y-m-d H:i:s'),
+                    'confirmation_date' => new DateTime($request->confirmation_date),
                     'image' => $request->image,
                     'total_money' => $transaction->total_money + ($number_day_overdue * 0.05 / 100 * $transaction->total_money),
                 ]);
@@ -64,7 +64,7 @@ class TransactionController extends Controller
             else {
     	    	$transaction->update([
     	    		'status' => 1,
-                    'confirmation_date' => date('Y-m-d H:i:s'),
+                    'confirmation_date' => new DateTime($request->confirmation_date),
                     'image' => $request->image,
     	    	]);
             }
